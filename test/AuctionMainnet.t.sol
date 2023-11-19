@@ -92,11 +92,6 @@ contract AuctionMainnetTest is Test {
         E8. Start Auction, wait till AuctionTimeExtraWindow, Place Bid -> check Expiration time
     //*/
 
-
-    /*
-        //Overflow tests?
-    //*/
-
     function _launchAuction() private {
         console.log();
         console.log("Launchin new auction at %d", block.timestamp);
