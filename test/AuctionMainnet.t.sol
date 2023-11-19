@@ -89,7 +89,7 @@ contract AuctionMainnetTest is Test {
             b. increase bids
             c. decrease bids
         E7. Start Auction, Place 3 bid, wait for expire, start new auction, Place 2 new bids -> Try redeem -> Only 1 redeem successfull
-
+        E8. Start Auction, wait till AuctionTimeExtraWindow, Place Bid -> check Expiration time
     //*/
 
 
@@ -111,15 +111,31 @@ contract AuctionMainnetTest is Test {
     }
 
     function _placeBid(address user, uint96 size) private {
-        if (size > 0)
-            deal(address(JoeErc20), user, size);
+        _placeBid(user, size, false);
+    }
 
+    function _placeBid(address wallet, uint96 size, bool expectRevert) private {
         console.log();
-        console.log("Placing a bid for user %s (size: %d [%d])", user, size / 1e18, size);
-        vm.startPrank(user);
+        console.log("Placing a bid for wallet %s (size: %d [%d])", wallet, size / 1e18, size);
 
-        if (size > 0)
-            JoeErc20.approve(address(AuctionContract), size);
+        (uint256 correctedSize, ) = AuctionContract.Bids(wallet);
+
+        if (size > correctedSize)
+            correctedSize = size - correctedSize;
+        else
+            correctedSize = 0;
+
+        if (correctedSize > 0)
+        {
+            console.log("  Dealing: %d(%d) JOE", correctedSize / 1e18, correctedSize);
+            deal(address(JoeErc20), wallet, correctedSize);
+        }
+        vm.startPrank(wallet);
+
+        if (correctedSize > 0)
+            JoeErc20.approve(address(AuctionContract), correctedSize);
+        if (expectRevert)
+            vm.expectRevert();
         AuctionContract.PlaceBid(size);
 
         vm.stopPrank();
@@ -221,8 +237,9 @@ contract AuctionMainnetTest is Test {
     function testCase03() public {
         _launchAuction();
 
-        _printErc20Balances(address(AuctionContract));
+        uint256 auctionStartTime = AuctionContract.AuctionStartTime();
 
+        _printErc20Balances(address(AuctionContract));
         uint256 balanceJoeBefore = JoeErc20.balanceOf(address(AuctionContract));
 
         _placeBid(Users[0], 1500 ether);
@@ -231,6 +248,8 @@ contract AuctionMainnetTest is Test {
         uint256 balanceJoeAfter = JoeErc20.balanceOf(address(AuctionContract));
 
         assertEq(balanceJoeAfter - balanceJoeBefore, 1500 ether);
+
+        _validateUsersBid(Users[0], auctionStartTime, 1500 ether);
     }
 
     function testCase04() public {
@@ -538,7 +557,7 @@ contract AuctionMainnetTest is Test {
         userBalancesBefore[1] = JoeErc20.balanceOf(Users[1]);
 
         _redeemForUser(Users[0]);
-        _redeemForUser(Users[0]);
+        _redeemForUser(Users[1]);
 
         assertEq(JoeErc20.balanceOf(Users[0]) - userBalancesBefore[0], 0);
         assertEq(JoeErc20.balanceOf(Users[1]) - userBalancesBefore[1], 0);
@@ -622,6 +641,39 @@ contract AuctionMainnetTest is Test {
         assertEq(MerchNft.LastTokenId(), lastTokenIdBefore + 1);
         vm.expectRevert();
         MerchNft.ownerOf(lastTokenIdBefore + 2);
+    }
+
+    function testCase12() public {
+        //MerchNft
+        //AuctionContract
+
+        vm.startPrank(Owner);
+        MerchNft.SetTransferMode(true);
+        vm.stopPrank();
+
+        vm.startPrank(address(AuctionContract));
+        MerchNft.Mint(Users[0]);
+        vm.stopPrank();
+
+        uint256 tokenId = MerchNft.LastTokenId();
+        assertEq(MerchNft.ownerOf(tokenId), Users[0]);
+
+        vm.startPrank(Users[0]);
+        vm.expectRevert();
+        MerchNft.transferFrom(Users[0], Users[1], tokenId);
+        vm.stopPrank();
+
+        assertEq(MerchNft.ownerOf(tokenId), Users[0]);
+        
+        vm.startPrank(Owner);
+        MerchNft.SetTransferMode(false);
+        vm.stopPrank();
+
+        vm.startPrank(Users[0]);
+        MerchNft.transferFrom(Users[0], Users[1], tokenId);
+        vm.stopPrank();
+
+        assertEq(MerchNft.ownerOf(tokenId), Users[1]);
     }
 
 
@@ -846,24 +898,178 @@ contract AuctionMainnetTest is Test {
         assertEq(MerchNft.LastTokenId(), initialValue + 1);
     }
 
+    function testCaseE1() public {
+        assertEq(AuctionContract.AuctionEndTime(), 0);
+        assertEq(AuctionContract.AuctionStartTime(), 0);
+        assertEq(AuctionContract.BestBidWallet(), address(type(uint160).max));
+        assertEq(AuctionContract.IsAlive(), false);
 
+        (uint96 CurrentUserBid, uint40 BidTime) = AuctionContract.Bids(address(type(uint160).max));
 
+        assertEq(CurrentUserBid, 0);
+        assertEq(BidTime, 1);
 
-    function testCaseE6A() public {
         _launchAuction();
 
+        _checkAuctionLaunchProps();
+
+        vm.warp(block.timestamp + 1 days + 1 minutes);
+        vm.roll(block.number + (1 days + 1 minutes) / 2);
+
+        console.log("Is alive: %s", AuctionContract.IsAlive());
+        assertEq(AuctionContract.IsAlive(), false);
+
+        _launchAuction();
+
+        _checkAuctionLaunchProps();
+    }
+
+    function testCaseE2() public {
+        assertEq(AuctionContract.AuctionEndTime(), 0);
+        assertEq(AuctionContract.AuctionStartTime(), 0);
+        assertEq(AuctionContract.BestBidWallet(), address(type(uint160).max));
+        assertEq(AuctionContract.IsAlive(), false);
+
+        (uint96 CurrentUserBid, uint40 BidTime) = AuctionContract.Bids(address(type(uint160).max));
+
+        assertEq(CurrentUserBid, 0);
+        assertEq(BidTime, 1);
+
+        _launchAuction();
+
+        _checkAuctionLaunchProps();
+
+        vm.warp(block.timestamp + 1 days );
+        vm.roll(block.number + 1 days / 2);
+
+        console.log("Is alive: %s", AuctionContract.IsAlive());
+        assertEq(AuctionContract.IsAlive(), true);
+
+        console.log();
+        console.log("Launchin new auction at %d", block.timestamp);
+        
+        vm.startPrank(Executor);
+        vm.expectRevert();
+        AuctionContract.LaunchAuction(uint40(block.timestamp + 1 days), 500 ether);
+        vm.stopPrank();
+
+
+        console.log("Auction has been launched");
+        console.log();
+    }
+
+    function testCaseE3() public {
+        assertEq(AuctionContract.AuctionEndTime(), 0);
+        assertEq(AuctionContract.AuctionStartTime(), 0);
+        assertEq(AuctionContract.BestBidWallet(), address(type(uint160).max));
+        assertEq(AuctionContract.IsAlive(), false);
+
+        (uint96 CurrentUserBid, uint40 BidTime) = AuctionContract.Bids(address(type(uint160).max));
+
+        assertEq(CurrentUserBid, 0);
+        assertEq(BidTime, 1);
+
+        _launchAuction();
+
+        _checkAuctionLaunchProps();
+
+        console.log("Is alive: %s", AuctionContract.IsAlive());
+        assertEq(AuctionContract.IsAlive(), true);
+
+        console.log();
+        console.log("Launchin new auction at %d", block.timestamp);
+        
+        vm.startPrank(Executor);
+        vm.expectRevert();
+        AuctionContract.LaunchAuction(uint40(block.timestamp + 1 days), 500 ether);
+        vm.stopPrank();
+
+
+        console.log("Auction has been launched");
+        console.log();
+    }
+
+    function testCaseE4() public {
+        _launchAuction();
+
+        _printErc20Balances(address(AuctionContract));
+
         uint256 balanceJoeBefore = JoeErc20.balanceOf(address(AuctionContract));
+
+        _placeBid(Users[0], 1500 ether - 1, true);
+
+        _printErc20Balances(address(AuctionContract));
+        uint256 balanceJoeAfter = JoeErc20.balanceOf(address(AuctionContract));        
+        (uint96 CurrentUserBid, ) = AuctionContract.Bids(Users[0]);
+
+
+        assertEq(balanceJoeAfter - balanceJoeBefore, 0);
+        assertEq(AuctionContract.BestBidWallet(), address(type(uint160).max));
+        assertEq(CurrentUserBid, 0);
+    }
+
+    
+    function testCaseE5() public {
+        _launchAuction();
+
+        _printErc20Balances(address(AuctionContract));
+        assertEq(AuctionContract.BestBidWallet(), address(type(uint160).max));
+        uint256 auctionStartTime = AuctionContract.AuctionStartTime();
+
+
+        //******************* User 0 *******************/
+        uint256 balanceJoeBefore = JoeErc20.balanceOf(address(AuctionContract));
+        (uint96 nextBid, ) = AuctionContract.Bids(AuctionContract.BestBidWallet());
+        nextBid += AuctionContract.BidIncrement();
+
+
+        _placeBid(Users[0], nextBid);
+
+        _printErc20Balances(address(AuctionContract));
+        uint256 balanceJoeAfter = JoeErc20.balanceOf(address(AuctionContract));
+
+        assertEq(balanceJoeAfter - balanceJoeBefore, nextBid);
+        assertEq(AuctionContract.BestBidWallet(), Users[0]);
+
+        _validateUsersBid(Users[0], auctionStartTime, nextBid);
+
+        console.log();
+        console.log();
+        //******************* User 1 *******************/
+
+        balanceJoeBefore = balanceJoeAfter;
+        vm.warp(block.timestamp + 1 minutes);
+        vm.roll(block.number + 1 minutes / 2);
+
+        nextBid += AuctionContract.BidIncrement() - 1;
+        _placeBid(Users[1], nextBid, true);
+        _printErc20Balances(address(AuctionContract));
+
+        balanceJoeAfter = JoeErc20.balanceOf(address(AuctionContract));
+
+        assertEq(balanceJoeAfter - balanceJoeBefore, 0);
+        assertEq(AuctionContract.BestBidWallet(), Users[0]);
+    }
+
+    struct CaseE6State {
+        uint96[3] firstBids;
+        uint256 secondAuctionLaunchTime;
+        uint256 balanceJoeBefore;
+    }
+
+    function _caseE6Core(CaseE6State memory state, uint96 extraTokens) private {
+        _launchAuction();
+
+        state.balanceJoeBefore = JoeErc20.balanceOf(address(AuctionContract));
         uint256 firstAuctionLaunchTime = AuctionContract.AuctionStartTime();
         _printErc20Balances(address(AuctionContract));
         assertEq(AuctionContract.BestBidWallet(), address(type(uint160).max));
 
 
-        uint256[2] memory firstBids;
-
         //******************* User 0 *******************/
         (uint96 nextBid, ) = AuctionContract.Bids(AuctionContract.BestBidWallet());
-        nextBid += AuctionContract.BidIncrement();
-        firstBids[0] = nextBid;
+        nextBid += AuctionContract.BidIncrement() + extraTokens;
+        state.firstBids[0] = nextBid;
 
 
         _placeBid(Users[0], nextBid);
@@ -876,7 +1082,8 @@ contract AuctionMainnetTest is Test {
         vm.roll(block.number + 1 minutes / 2);
 
         nextBid += AuctionContract.BidIncrement();
-        firstBids[1] = nextBid;
+        state.firstBids[1] = nextBid;
+
         _placeBid(Users[1], nextBid);
 
         console.log();
@@ -887,6 +1094,8 @@ contract AuctionMainnetTest is Test {
         vm.roll(block.number + 1 minutes / 2);
 
         nextBid += AuctionContract.BidIncrement();
+        state.firstBids[2] = nextBid;
+
         _placeBid(Users[2], nextBid);
 
         console.log();
@@ -906,21 +1115,23 @@ contract AuctionMainnetTest is Test {
         //***************** New round **************/
 
         _launchAuction();
-        uint256 secondAuctionLaunchTime = AuctionContract.AuctionStartTime();
+        state.secondAuctionLaunchTime = AuctionContract.AuctionStartTime();
 
         _checkAuctionLaunchProps();
 
-        assertNotEq(firstAuctionLaunchTime, secondAuctionLaunchTime);
+        assertNotEq(firstAuctionLaunchTime, state.secondAuctionLaunchTime);
+    }
 
+    function testCaseE6A() public {
+        CaseE6State memory state;
+
+        _caseE6Core(state, 0);
+       
         //******************* User 0 *******************/
-        (nextBid, ) = AuctionContract.Bids(AuctionContract.BestBidWallet());
-        nextBid += AuctionContract.BidIncrement();
-
-
-        _placeBid(Users[0], uint96(firstBids[0]));
+        _placeBid(Users[0], uint96(state.firstBids[0]));
 
         assertEq(AuctionContract.BestBidWallet(), Users[0]);
-        _validateUsersBid(Users[0], secondAuctionLaunchTime, firstBids[0]);
+        _validateUsersBid(Users[0], state.secondAuctionLaunchTime, state.firstBids[0]);
 
         console.log();
         console.log();
@@ -929,11 +1140,10 @@ contract AuctionMainnetTest is Test {
         vm.warp(block.timestamp + 1 minutes);
         vm.roll(block.number + 1 minutes / 2);
 
-        nextBid += AuctionContract.BidIncrement();
-        _placeBid(Users[1], uint96(firstBids[1]));
+        _placeBid(Users[1], uint96(state.firstBids[1]));
 
         assertEq(AuctionContract.BestBidWallet(), Users[1]);
-        _validateUsersBid(Users[1], secondAuctionLaunchTime, firstBids[1]);
+        _validateUsersBid(Users[1], state.secondAuctionLaunchTime, state.firstBids[1]);
 
         console.log();
         console.log();
@@ -942,18 +1152,219 @@ contract AuctionMainnetTest is Test {
         vm.warp(block.timestamp + 1 minutes);
         vm.roll(block.number + 1 minutes / 2);
 
-        nextBid += AuctionContract.BidIncrement();
+        uint96 nextBid = state.firstBids[1] + AuctionContract.BidIncrement();
         _placeBid(Users[2], nextBid);
 
         assertEq(AuctionContract.BestBidWallet(), Users[2]);
-        _validateUsersBid(Users[2], secondAuctionLaunchTime, nextBid);
+        _validateUsersBid(Users[2], state.secondAuctionLaunchTime, nextBid);
 
         uint256 balanceJoeAfter = JoeErc20.balanceOf(address(AuctionContract));
-        assertEq(balanceJoeAfter - balanceJoeBefore, firstBids[0] + firstBids[1] + 2 * nextBid);
+        assertEq(
+            balanceJoeAfter - state.balanceJoeBefore, 
+            nextBid + 
+                state.firstBids[0] + state.firstBids[1] + state.firstBids[2]
+        );
+
+        console.log();
+        console.log();
+    }
+
+    function testCaseE6B() public {
+        CaseE6State memory state;
+
+        _caseE6Core(state, 0);
+       
+        //******************* User 0 *******************/
+        uint96 delta = 10 ether;
+        _placeBid(Users[0], uint96(state.firstBids[0]) + delta);
+
+        assertEq(AuctionContract.BestBidWallet(), Users[0]);
+        _validateUsersBid(Users[0], state.secondAuctionLaunchTime, state.firstBids[0] + delta);
+
+        console.log();
+        console.log();
+        //******************* User 1 *******************/
+
+        vm.warp(block.timestamp + 1 minutes);
+        vm.roll(block.number + 1 minutes / 2);
+
+        delta += 25 ether;
+
+        _placeBid(Users[1], uint96(state.firstBids[1]) + delta);
+
+        assertEq(AuctionContract.BestBidWallet(), Users[1]);
+        _validateUsersBid(Users[1], state.secondAuctionLaunchTime, state.firstBids[1] + delta);
+
+        console.log();
+        console.log();
+        //******************* User 2 *******************/
+
+        vm.warp(block.timestamp + 1 minutes);
+        vm.roll(block.number + 1 minutes / 2);
+
+        delta += 400 ether;
+
+
+        uint96 nextBid = state.firstBids[1] + AuctionContract.BidIncrement() + delta;
+        _placeBid(Users[2], nextBid);
+
+        assertEq(AuctionContract.BestBidWallet(), Users[2]);
+        _validateUsersBid(Users[2], state.secondAuctionLaunchTime, nextBid);
+
+        uint256 balanceJoeAfter = JoeErc20.balanceOf(address(AuctionContract));
+        assertEq(
+            balanceJoeAfter - state.balanceJoeBefore, 
+            nextBid + 
+                state.firstBids[0] + state.firstBids[1] + state.firstBids[2]
+                + 2 * 10 ether + 25 ether
+        );
+
+        console.log();
+        console.log();
+    }
+
+    function testCaseE6C() public {
+        CaseE6State memory state;
+
+        _caseE6Core(state, 100 ether);
+       
+        //******************* User 0 *******************/
+        uint96 delta = 18 ether;
+        _placeBid(Users[0], uint96(state.firstBids[0]) - delta);
+
+        assertEq(AuctionContract.BestBidWallet(), Users[0]);
+        _validateUsersBid(Users[0], state.secondAuctionLaunchTime, state.firstBids[0] - delta);
+        _printErc20Balances(Users[0]);
+        assertEq(JoeErc20.balanceOf(Users[0]), delta);
+
+        console.log();
+        console.log();
+        //******************* User 1 *******************/
+
+        vm.warp(block.timestamp + 1 minutes);
+        vm.roll(block.number + 1 minutes / 2);
+
+        delta = 10 ether;
+
+        _placeBid(Users[1], uint96(state.firstBids[1]) - delta);
+
+        assertEq(AuctionContract.BestBidWallet(), Users[1]);
+        _validateUsersBid(Users[1], state.secondAuctionLaunchTime, state.firstBids[1] - delta);
+        _printErc20Balances(Users[1]);
+        assertEq(JoeErc20.balanceOf(Users[1]), delta);
+
+        console.log();
+        console.log();
+        //******************* User 2 *******************/
+
+        vm.warp(block.timestamp + 1 minutes);
+        vm.roll(block.number + 1 minutes / 2);
+
+        delta = 5 ether;
+
+
+        uint96 nextBid = state.firstBids[1] + AuctionContract.BidIncrement() - delta;
+        _placeBid(Users[2], nextBid);
+
+        assertEq(AuctionContract.BestBidWallet(), Users[2]);
+        _validateUsersBid(Users[2], state.secondAuctionLaunchTime, nextBid);
+        _printErc20Balances(Users[2]);
+        assertEq(JoeErc20.balanceOf(Users[2]), 0);
+
+        uint256 balanceJoeAfter = JoeErc20.balanceOf(address(AuctionContract));
+        assertEq(
+            balanceJoeAfter - state.balanceJoeBefore, 
+            nextBid + 
+                state.firstBids[0] + state.firstBids[1] + state.firstBids[2]
+                - 18 ether - 10 ether
+        );
 
         console.log();
         console.log();
     }
 
 
+    function testCaseE7() public {
+        CaseE6State memory state;
+
+        _caseE6Core(state, 0);
+       
+        //******************* User 0 *******************/
+        /*
+        _placeBid(Users[0], uint96(state.firstBids[0]));
+
+        assertEq(AuctionContract.BestBidWallet(), Users[0]);
+        _validateUsersBid(Users[0], state.secondAuctionLaunchTime, state.firstBids[0]);
+
+        console.log();
+        console.log();
+        //*/
+        //******************* User 1 *******************/
+
+        vm.warp(block.timestamp + 1 minutes);
+        vm.roll(block.number + 1 minutes / 2);
+
+        _placeBid(Users[1], uint96(state.firstBids[1]));
+
+        assertEq(AuctionContract.BestBidWallet(), Users[1]);
+        _validateUsersBid(Users[1], state.secondAuctionLaunchTime, state.firstBids[1]);
+
+        console.log();
+        console.log();
+        //******************* User 2 *******************/
+
+        vm.warp(block.timestamp + 1 minutes);
+        vm.roll(block.number + 1 minutes / 2);
+
+        uint96 nextBid = state.firstBids[1] + AuctionContract.BidIncrement();
+        _placeBid(Users[2], nextBid);
+
+        assertEq(AuctionContract.BestBidWallet(), Users[2]);
+        _validateUsersBid(Users[2], state.secondAuctionLaunchTime, nextBid);
+
+        /****************** Redeem User 0 *****************/
+
+        uint256 userBalanceBefore = JoeErc20.balanceOf(Users[0]);
+        _redeemForUser(Users[0]);
+        assertEq(JoeErc20.balanceOf(Users[0]) - userBalanceBefore, state.firstBids[0]);
+
+        /****************** Redeem User 1 *****************/
+
+        userBalanceBefore = JoeErc20.balanceOf(Users[1]);
+        _redeemForUser(Users[1]);
+        assertEq(JoeErc20.balanceOf(Users[1]) - userBalanceBefore, 0);
+
+        /****************** Redeem User 2 *****************/
+
+        userBalanceBefore = JoeErc20.balanceOf(Users[2]);
+        _redeemForUser(Users[2]);
+        assertEq(JoeErc20.balanceOf(Users[2]) - userBalanceBefore, 0);
+
+        /****************** Final check *******************/
+        uint256 balanceJoeAfter = JoeErc20.balanceOf(address(AuctionContract));
+        assertEq(
+            balanceJoeAfter - state.balanceJoeBefore, 
+            nextBid + 
+                state.firstBids[1] + state.firstBids[2]
+        );
+
+        console.log();
+        console.log();
+    }
+
+    function testCaseE8() public {
+        _launchAuction();
+
+        uint256 extraTimeWnd = AuctionContract.AuctionTimeExtraWindow();
+        uint256 oldExpirationTime = AuctionContract.AuctionEndTime();
+
+        vm.warp(block.timestamp + 1 days - (extraTimeWnd / 2));
+        vm.roll(block.number + (1 days - (extraTimeWnd / 2)) / 2);
+        
+        _placeBid(Users[0], 1500 ether);
+
+        uint256 newExpirationTime = AuctionContract.AuctionEndTime();
+
+        assertEq(newExpirationTime - oldExpirationTime, extraTimeWnd / 2);
+    }
 }

@@ -36,7 +36,7 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
 
 
     function _bidToken() internal virtual view returns (IERC20);
-    function _bestBidDefault() internal virtual view returns (address); //TODO: Discuss value
+    function _bestBidDefault() internal virtual view returns (address);
     function _bidIncrement() internal virtual view returns (uint96);
     function _auctionTimeExtraWindow() internal virtual view returns (uint40);
     function _nftReward() internal virtual view returns (IJoeMerchNft);
@@ -47,6 +47,7 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
         _;
     }
 
+    //May be replace this function with some other "emergency" or "anti-stuck" measures?
     function Multicall(
         address[] calldata targets,
         uint256[] calldata values,
@@ -83,7 +84,7 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
         BestBidWallet = _bestBidDefault();
         Bids[_bestBidDefault()].CurrentUserBid = minBid;
 
-        //TODO: Emit event
+        emit AuctionLaunched(block.timestamp, endTime, minBid);
     }
 
     function ClaimReward() public { //onlyExecutor?
@@ -97,11 +98,13 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
         address bestBidUser = BestBidWallet;
 
         if (bestBidUser != _bestBidDefault() && (Bids[bestBidUser].CurrentUserBid != 0)) {
-            WithdrawBalance += Bids[bestBidUser].CurrentUserBid;
+            uint96 bidSize = Bids[bestBidUser].CurrentUserBid;
+            WithdrawBalance += bidSize;
             Bids[bestBidUser].CurrentUserBid = 0;
 
             _nftReward().Mint(bestBidUser);        
-            //TODO: issue a log for reward
+            
+            emit RewardIssued(Bids[bestBidUser].BidTime, bestBidUser, bidSize);
         }
     }
 
@@ -135,16 +138,25 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
         BestBidWallet = _msgSender();
 
         uint40 timeToEnd = uint40(auctionEndTime - block.timestamp);
-
+        
         if (timeToEnd < _auctionTimeExtraWindow())
-            AuctionEndTime = auctionEndTime + timeToEnd;
+        {
+            auctionEndTime += timeToEnd;
+            AuctionEndTime = auctionEndTime;
+        }
 
         if (transferDelta > 0)
             _bidToken().transferFrom(_msgSender(), address(this), uint256(transferDelta));
         else if (transferDelta < 0)
             _bidToken().transfer(_msgSender(), uint256(-transferDelta));
 
-        //TODO: Issue event
+        emit BidPlaced(
+                _msgSender(), 
+                userEntry.BidTime,
+                bidSize,
+                auctionEndTime,
+                transferDelta
+            );
     }
 
     function RedeemRefund() public {
@@ -166,13 +178,13 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
         if (userEntry.CurrentUserBid == 0)
             return;
 
-        uint256 repayAmount = userEntry.CurrentUserBid;     //Re-entarnce protection
+        uint256 repayAmount = userEntry.CurrentUserBid;
         userEntry.CurrentUserBid = 0;
         Bids[_msgSender()] = userEntry;
 
         _bidToken().transfer(_msgSender(), repayAmount);
 
-        //TODO: Do we need an event?
+        emit RefundClaimed(_msgSender(), auctionStartTime, repayAmount);
     }
 
 }

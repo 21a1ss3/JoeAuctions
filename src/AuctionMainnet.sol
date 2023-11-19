@@ -13,7 +13,6 @@ contract JoeAuctionsMainnet is JoeAuctionsGeneric {
 
 
     function _bidToken() internal override pure returns (IERC20) { return IERC20(0x76e222b07C53D28b89b0bAc18602810Fc22B49A8); }
-     //TODO: Discuss value
     function _bestBidDefault() internal override pure returns (address) { return address(type(uint160).max); }
     function _bidIncrement() internal override view returns (uint96) { return BidIncrement; }
     function _auctionTimeExtraWindow() internal override view returns (uint40) { return AuctionTimeExtraWindow; }    
