@@ -1,0 +1,1947 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "StartTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "EndTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "StartBid",
+          "type": "uint256"
+        }
+      ],
+      "name": "AuctionLaunched",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "Wallet",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "AuctionStartTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "Size",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "AuctionEndTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "int256",
+          "name": "Transferred",
+          "type": "int256"
+        }
+      ],
+      "name": "BidPlaced",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "Wallet",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "AuctionStartTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "Size",
+          "type": "uint256"
+        }
+      ],
+      "name": "RefundClaimed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "AuctionStartTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "Wallet",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "BidSize",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardIssued",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "AuctionEndTime",
+      "outputs": [
+        {
+          "internalType": "uint40",
+          "name": "",
+          "type": "uint40"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "AuctionStartTime",
+      "outputs": [
+        {
+          "internalType": "uint40",
+          "name": "",
+          "type": "uint40"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "AuctionTimeExtraWindow",
+      "outputs": [
+        {
+          "internalType": "uint40",
+          "name": "",
+          "type": "uint40"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "BestBidWallet",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "BidIncrement",
+      "outputs": [
+        {
+          "internalType": "uint96",
+          "name": "",
+          "type": "uint96"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "wallet",
+          "type": "address"
+        }
+      ],
+      "name": "Bids",
+      "outputs": [
+        {
+          "internalType": "uint96",
+          "name": "CurrentUserBid",
+          "type": "uint96"
+        },
+        {
+          "internalType": "uint40",
+          "name": "BidTime",
+          "type": "uint40"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ClaimReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "IsAlive",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MerchNft",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "bidSize",
+          "type": "uint256"
+        }
+      ],
+      "name": "PlaceBid",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "RedeemRefund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "AuctionEndTime()": "f3c88510",
+    "AuctionStartTime()": "31bdf5ca",
+    "AuctionTimeExtraWindow()": "0d6e4f08",
+    "BestBidWallet()": "bc537b76",
+    "BidIncrement()": "b2048e5e",
+    "Bids(address)": "0251e03e",
+    "ClaimReward()": "79372f9a",
+    "IsAlive()": "1fc09c94",
+    "MerchNft()": "600d55c1",
+    "PlaceBid(uint256)": "967e5e95",
+    "RedeemRefund()": "e4fb5613"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.23+commit.f704f362\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"StartTime\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"EndTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"StartBid\",\"type\":\"uint256\"}],\"name\":\"AuctionLaunched\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"Wallet\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"AuctionStartTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"Size\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"AuctionEndTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"int256\",\"name\":\"Transferred\",\"type\":\"int256\"}],\"name\":\"BidPlaced\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"Wallet\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"AuctionStartTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"Size\",\"type\":\"uint256\"}],\"name\":\"RefundClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"AuctionStartTime\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"Wallet\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"BidSize\",\"type\":\"uint256\"}],\"name\":\"RewardIssued\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"AuctionEndTime\",\"outputs\":[{\"internalType\":\"uint40\",\"name\":\"\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"AuctionStartTime\",\"outputs\":[{\"internalType\":\"uint40\",\"name\":\"\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"AuctionTimeExtraWindow\",\"outputs\":[{\"internalType\":\"uint40\",\"name\":\"\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"BestBidWallet\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"BidIncrement\",\"outputs\":[{\"internalType\":\"uint96\",\"name\":\"\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"}],\"name\":\"Bids\",\"outputs\":[{\"internalType\":\"uint96\",\"name\":\"CurrentUserBid\",\"type\":\"uint96\"},{\"internalType\":\"uint40\",\"name\":\"BidTime\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ClaimReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"IsAlive\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MerchNft\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"bidSize\",\"type\":\"uint256\"}],\"name\":\"PlaceBid\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RedeemRefund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"AuctionEndTime()\":{\"details\":\"Returns timestamp when current Auction stops(-ed), inclusive\",\"returns\":{\"_0\":\"uint40 Auction end time (same units as block.timestamp)\"}},\"AuctionStartTime()\":{\"details\":\"Returns time when current Auction has been launched\",\"returns\":{\"_0\":\"uint40 Auction start time (same units as block.timestamp)\"}},\"AuctionTimeExtraWindow()\":{\"details\":\"Returns current auction time window when end time is extended\",\"returns\":{\"_0\":\"uint40 auction time window\"}},\"BestBidWallet()\":{\"details\":\"Returns current best bid wallet -or- 0xfffff..fff\",\"returns\":{\"_0\":\"address Current best bid wallet\"}},\"BidIncrement()\":{\"details\":\"Returns current bid increment required to outbid previous user\",\"returns\":{\"_0\":\"uint96 bid increment\"}},\"Bids(address)\":{\"details\":\"Returns status of user's Bid\",\"returns\":{\"BidTime\":\"Auction start timestamp described associated auction\",\"CurrentUserBid\":\"Current user's bid size\"}},\"ClaimReward()\":{\"details\":\"Claims a reward for a winner\"},\"IsAlive()\":{\"details\":\"Returns a current state of Auction\",\"returns\":{\"_0\":\"bool true if auction is active, false - otherwise\"}},\"MerchNft()\":{\"details\":\"Returns current Joe Merch NFT contract used to reward user\",\"returns\":{\"_0\":\"address Address of Joe Merch NFT contract\"}},\"PlaceBid(uint256)\":{\"details\":\"Placing a new bid or resizing user bid\",\"params\":{\"bidSize\":\"New absolute size of user Bid\"}},\"RedeemRefund()\":{\"details\":\"Refunds outbid users\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"AuctionEndTime()\":{\"notice\":\"Returns timestamp when current Auction stops(-ed), inclusive\"},\"AuctionStartTime()\":{\"notice\":\"Returns time when current Auction has been launched\"},\"AuctionTimeExtraWindow()\":{\"notice\":\"Returns current auction time window when end time is extended\"},\"BestBidWallet()\":{\"notice\":\"Returns current best bid wallet -or- 0xfffff..fff\"},\"BidIncrement()\":{\"notice\":\"Returns current bid increment required to outbid previous user\"},\"Bids(address)\":{\"notice\":\"Returns status of user's Bid\"},\"ClaimReward()\":{\"notice\":\"Claims a reward for a winner\"},\"IsAlive()\":{\"notice\":\"Returns a current state of Auction\"},\"MerchNft()\":{\"notice\":\"Returns current Joe Merch NFT contract used to reward user\"},\"PlaceBid(uint256)\":{\"notice\":\"Placing a new bid or resizing user bid\"},\"RedeemRefund()\":{\"notice\":\"Refunds outbid users\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/IAuction.sol\":\"IAuction\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\"]},\"sources\":{\"src/IAuction.sol\":{\"keccak256\":\"0x1a5815b677445720f0c687b433bd6e82220f07a15cc04fa5aef5b276cdc805be\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://b1640858954cb9ef1f43ef0bd4668359a97ee99410cae73bfe69ac0f3f55cbed\",\"dweb:/ipfs/QmZZMVnWhtcyF3XetiiYmo4bTRGSpATUaqpxiXBENihywq\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.23+commit.f704f362"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "StartTime",
+              "type": "uint256",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "EndTime",
+              "type": "uint256",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "StartBid",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AuctionLaunched",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "Wallet",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "AuctionStartTime",
+              "type": "uint256",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "Size",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "AuctionEndTime",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "int256",
+              "name": "Transferred",
+              "type": "int256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "BidPlaced",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "Wallet",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "AuctionStartTime",
+              "type": "uint256",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "Size",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "RefundClaimed",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "AuctionStartTime",
+              "type": "uint256",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "Wallet",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "BidSize",
+              "type": "uint256",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "RewardIssued",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "AuctionEndTime",
+          "outputs": [
+            {
+              "internalType": "uint40",
+              "name": "",
+              "type": "uint40"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "AuctionStartTime",
+          "outputs": [
+            {
+              "internalType": "uint40",
+              "name": "",
+              "type": "uint40"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "AuctionTimeExtraWindow",
+          "outputs": [
+            {
+              "internalType": "uint40",
+              "name": "",
+              "type": "uint40"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "BestBidWallet",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "BidIncrement",
+          "outputs": [
+            {
+              "internalType": "uint96",
+              "name": "",
+              "type": "uint96"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "Bids",
+          "outputs": [
+            {
+              "internalType": "uint96",
+              "name": "CurrentUserBid",
+              "type": "uint96"
+            },
+            {
+              "internalType": "uint40",
+              "name": "BidTime",
+              "type": "uint40"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "ClaimReward"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "IsAlive",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "MerchNft",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "bidSize",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "PlaceBid"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "RedeemRefund"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "AuctionEndTime()": {
+            "details": "Returns timestamp when current Auction stops(-ed), inclusive",
+            "returns": {
+              "_0": "uint40 Auction end time (same units as block.timestamp)"
+            }
+          },
+          "AuctionStartTime()": {
+            "details": "Returns time when current Auction has been launched",
+            "returns": {
+              "_0": "uint40 Auction start time (same units as block.timestamp)"
+            }
+          },
+          "AuctionTimeExtraWindow()": {
+            "details": "Returns current auction time window when end time is extended",
+            "returns": {
+              "_0": "uint40 auction time window"
+            }
+          },
+          "BestBidWallet()": {
+            "details": "Returns current best bid wallet -or- 0xfffff..fff",
+            "returns": {
+              "_0": "address Current best bid wallet"
+            }
+          },
+          "BidIncrement()": {
+            "details": "Returns current bid increment required to outbid previous user",
+            "returns": {
+              "_0": "uint96 bid increment"
+            }
+          },
+          "Bids(address)": {
+            "details": "Returns status of user's Bid",
+            "returns": {
+              "BidTime": "Auction start timestamp described associated auction",
+              "CurrentUserBid": "Current user's bid size"
+            }
+          },
+          "ClaimReward()": {
+            "details": "Claims a reward for a winner"
+          },
+          "IsAlive()": {
+            "details": "Returns a current state of Auction",
+            "returns": {
+              "_0": "bool true if auction is active, false - otherwise"
+            }
+          },
+          "MerchNft()": {
+            "details": "Returns current Joe Merch NFT contract used to reward user",
+            "returns": {
+              "_0": "address Address of Joe Merch NFT contract"
+            }
+          },
+          "PlaceBid(uint256)": {
+            "details": "Placing a new bid or resizing user bid",
+            "params": {
+              "bidSize": "New absolute size of user Bid"
+            }
+          },
+          "RedeemRefund()": {
+            "details": "Refunds outbid users"
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "AuctionEndTime()": {
+            "notice": "Returns timestamp when current Auction stops(-ed), inclusive"
+          },
+          "AuctionStartTime()": {
+            "notice": "Returns time when current Auction has been launched"
+          },
+          "AuctionTimeExtraWindow()": {
+            "notice": "Returns current auction time window when end time is extended"
+          },
+          "BestBidWallet()": {
+            "notice": "Returns current best bid wallet -or- 0xfffff..fff"
+          },
+          "BidIncrement()": {
+            "notice": "Returns current bid increment required to outbid previous user"
+          },
+          "Bids(address)": {
+            "notice": "Returns status of user's Bid"
+          },
+          "ClaimReward()": {
+            "notice": "Claims a reward for a winner"
+          },
+          "IsAlive()": {
+            "notice": "Returns a current state of Auction"
+          },
+          "MerchNft()": {
+            "notice": "Returns current Joe Merch NFT contract used to reward user"
+          },
+          "PlaceBid(uint256)": {
+            "notice": "Placing a new bid or resizing user bid"
+          },
+          "RedeemRefund()": {
+            "notice": "Refunds outbid users"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+        "ds-test/=lib/forge-std/lib/ds-test/src/",
+        "erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+        "forge-std/=lib/forge-std/src/",
+        "openzeppelin-contracts/=lib/openzeppelin-contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/IAuction.sol": "IAuction"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/IAuction.sol": {
+        "keccak256": "0x1a5815b677445720f0c687b433bd6e82220f07a15cc04fa5aef5b276cdc805be",
+        "urls": [
+          "bzz-raw://b1640858954cb9ef1f43ef0bd4668359a97ee99410cae73bfe69ac0f3f55cbed",
+          "dweb:/ipfs/QmZZMVnWhtcyF3XetiiYmo4bTRGSpATUaqpxiXBENihywq"
+        ],
+        "license": "UNLICENSED"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/IAuction.sol",
+    "id": 46755,
+    "exportedSymbols": {
+      "IAuction": [
+        46754
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "40:3452:33",
+    "nodes": [
+      {
+        "id": 46646,
+        "nodeType": "PragmaDirective",
+        "src": "40:23:33",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ]
+      },
+      {
+        "id": 46754,
+        "nodeType": "ContractDefinition",
+        "src": "67:3425:33",
+        "nodes": [
+          {
+            "id": 46651,
+            "nodeType": "StructDefinition",
+            "src": "153:86:33",
+            "nodes": [],
+            "canonicalName": "IAuction.AuctionEntry",
+            "members": [
+              {
+                "constant": false,
+                "id": 46648,
+                "mutability": "mutable",
+                "name": "CurrentUserBid",
+                "nameLocation": "191:14:33",
+                "nodeType": "VariableDeclaration",
+                "scope": 46651,
+                "src": "184:21:33",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint96",
+                  "typeString": "uint96"
+                },
+                "typeName": {
+                  "id": 46647,
+                  "name": "uint96",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "184:6:33",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 46650,
+                "mutability": "mutable",
+                "name": "BidTime",
+                "nameLocation": "224:7:33",
+                "nodeType": "VariableDeclaration",
+                "scope": 46651,
+                "src": "216:15:33",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint40",
+                  "typeString": "uint40"
+                },
+                "typeName": {
+                  "id": 46649,
+                  "name": "uint40",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "216:6:33",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint40",
+                    "typeString": "uint40"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "AuctionEntry",
+            "nameLocation": "160:12:33",
+            "scope": 46754,
+            "visibility": "public"
+          },
+          {
+            "id": 46655,
+            "nodeType": "FunctionDefinition",
+            "src": "336:32:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46652,
+              "nodeType": "StructuredDocumentation",
+              "src": "247:83:33",
+              "text": "@notice Claims a reward for a winner\n @dev Claims a reward for a winner"
+            },
+            "functionSelector": "79372f9a",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "ClaimReward",
+            "nameLocation": "345:11:33",
+            "parameters": {
+              "id": 46653,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "356:2:33"
+            },
+            "returnParameters": {
+              "id": 46654,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "367:0:33"
+            },
+            "scope": 46754,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46661,
+            "nodeType": "FunctionDefinition",
+            "src": "544:48:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46656,
+              "nodeType": "StructuredDocumentation",
+              "src": "376:162:33",
+              "text": "@notice Returns a current state of Auction\n @dev Returns a current state of Auction\n @return bool true if auction is active, false - otherwise"
+            },
+            "functionSelector": "1fc09c94",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "IsAlive",
+            "nameLocation": "553:7:33",
+            "parameters": {
+              "id": 46657,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "560:2:33"
+            },
+            "returnParameters": {
+              "id": 46660,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46659,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46661,
+                  "src": "586:4:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 46658,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "586:4:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "585:6:33"
+            },
+            "scope": 46754,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46667,
+            "nodeType": "FunctionDefinition",
+            "src": "763:44:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46662,
+              "nodeType": "StructuredDocumentation",
+              "src": "600:157:33",
+              "text": "@notice Placing a new bid or resizing user bid\n @dev Placing a new bid or resizing user bid\n @param bidSize New absolute size of user Bid"
+            },
+            "functionSelector": "967e5e95",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "PlaceBid",
+            "nameLocation": "772:8:33",
+            "parameters": {
+              "id": 46665,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46664,
+                  "mutability": "mutable",
+                  "name": "bidSize",
+                  "nameLocation": "789:7:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46667,
+                  "src": "781:15:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46663,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "781:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "780:17:33"
+            },
+            "returnParameters": {
+              "id": 46666,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "806:0:33"
+            },
+            "scope": 46754,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46671,
+            "nodeType": "FunctionDefinition",
+            "src": "888:33:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46668,
+              "nodeType": "StructuredDocumentation",
+              "src": "815:67:33",
+              "text": "@notice Refunds outbid users\n @dev Refunds outbid users"
+            },
+            "functionSelector": "e4fb5613",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "RedeemRefund",
+            "nameLocation": "897:12:33",
+            "parameters": {
+              "id": 46669,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "909:2:33"
+            },
+            "returnParameters": {
+              "id": 46670,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "920:0:33"
+            },
+            "scope": 46754,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46677,
+            "nodeType": "FunctionDefinition",
+            "src": "1130:55:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46672,
+              "nodeType": "StructuredDocumentation",
+              "src": "935:189:33",
+              "text": "@notice Returns current bid increment required to outbid previous user\n @dev Returns current bid increment required to outbid previous user\n @return uint96 bid increment"
+            },
+            "functionSelector": "b2048e5e",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "BidIncrement",
+            "nameLocation": "1139:12:33",
+            "parameters": {
+              "id": 46673,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1151:2:33"
+            },
+            "returnParameters": {
+              "id": 46676,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46675,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46677,
+                  "src": "1177:6:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 46674,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1177:6:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1176:8:33"
+            },
+            "scope": 46754,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46683,
+            "nodeType": "FunctionDefinition",
+            "src": "1396:65:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46678,
+              "nodeType": "StructuredDocumentation",
+              "src": "1197:193:33",
+              "text": "@notice Returns current auction time window when end time is extended\n @dev Returns current auction time window when end time is extended\n @return uint40 auction time window"
+            },
+            "functionSelector": "0d6e4f08",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "AuctionTimeExtraWindow",
+            "nameLocation": "1405:22:33",
+            "parameters": {
+              "id": 46679,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1427:2:33"
+            },
+            "returnParameters": {
+              "id": 46682,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46681,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46683,
+                  "src": "1453:6:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint40",
+                    "typeString": "uint40"
+                  },
+                  "typeName": {
+                    "id": 46680,
+                    "name": "uint40",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1453:6:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint40",
+                      "typeString": "uint40"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1452:8:33"
+            },
+            "scope": 46754,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46689,
+            "nodeType": "FunctionDefinition",
+            "src": "1681:52:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46684,
+              "nodeType": "StructuredDocumentation",
+              "src": "1473:202:33",
+              "text": "@notice Returns current Joe Merch NFT contract used to reward user\n @dev Returns current Joe Merch NFT contract used to reward user\n @return address Address of Joe Merch NFT contract"
+            },
+            "functionSelector": "600d55c1",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "MerchNft",
+            "nameLocation": "1690:8:33",
+            "parameters": {
+              "id": 46685,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1698:2:33"
+            },
+            "returnParameters": {
+              "id": 46688,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46687,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46689,
+                  "src": "1724:7:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 46686,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1724:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1723:9:33"
+            },
+            "scope": 46754,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46695,
+            "nodeType": "FunctionDefinition",
+            "src": "1971:57:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46690,
+              "nodeType": "StructuredDocumentation",
+              "src": "1745:220:33",
+              "text": "@notice Returns timestamp when current Auction stops(-ed), inclusive\n @dev Returns timestamp when current Auction stops(-ed), inclusive\n @return uint40 Auction end time (same units as block.timestamp)"
+            },
+            "functionSelector": "f3c88510",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "AuctionEndTime",
+            "nameLocation": "1980:14:33",
+            "parameters": {
+              "id": 46691,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1994:2:33"
+            },
+            "returnParameters": {
+              "id": 46694,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46693,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46695,
+                  "src": "2020:6:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint40",
+                    "typeString": "uint40"
+                  },
+                  "typeName": {
+                    "id": 46692,
+                    "name": "uint40",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2020:6:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint40",
+                      "typeString": "uint40"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2019:8:33"
+            },
+            "scope": 46754,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46701,
+            "nodeType": "FunctionDefinition",
+            "src": "2250:59:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46696,
+              "nodeType": "StructuredDocumentation",
+              "src": "2040:204:33",
+              "text": "@notice Returns time when current Auction has been launched\n @dev Returns time when current Auction has been launched\n @return uint40 Auction start time (same units as block.timestamp)"
+            },
+            "functionSelector": "31bdf5ca",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "AuctionStartTime",
+            "nameLocation": "2259:16:33",
+            "parameters": {
+              "id": 46697,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2275:2:33"
+            },
+            "returnParameters": {
+              "id": 46700,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46699,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46701,
+                  "src": "2301:6:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint40",
+                    "typeString": "uint40"
+                  },
+                  "typeName": {
+                    "id": 46698,
+                    "name": "uint40",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2301:6:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint40",
+                      "typeString": "uint40"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2300:8:33"
+            },
+            "scope": 46754,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46707,
+            "nodeType": "FunctionDefinition",
+            "src": "2501:57:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46702,
+              "nodeType": "StructuredDocumentation",
+              "src": "2321:174:33",
+              "text": "@notice Returns current best bid wallet -or- 0xfffff..fff\n @dev Returns current best bid wallet -or- 0xfffff..fff\n @return address Current best bid wallet"
+            },
+            "functionSelector": "bc537b76",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "BestBidWallet",
+            "nameLocation": "2510:13:33",
+            "parameters": {
+              "id": 46703,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2523:2:33"
+            },
+            "returnParameters": {
+              "id": 46706,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46705,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46707,
+                  "src": "2549:7:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 46704,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2549:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2548:9:33"
+            },
+            "scope": 46754,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46717,
+            "nodeType": "FunctionDefinition",
+            "src": "2793:92:33",
+            "nodes": [],
+            "documentation": {
+              "id": 46708,
+              "nodeType": "StructuredDocumentation",
+              "src": "2570:217:33",
+              "text": "@notice Returns status of user's Bid\n @dev Returns status of user's Bid\n @return CurrentUserBid Current user's bid size\n @return BidTime Auction start timestamp described associated auction"
+            },
+            "functionSelector": "0251e03e",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Bids",
+            "nameLocation": "2802:4:33",
+            "parameters": {
+              "id": 46711,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46710,
+                  "mutability": "mutable",
+                  "name": "wallet",
+                  "nameLocation": "2815:6:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46717,
+                  "src": "2807:14:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 46709,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2807:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2806:16:33"
+            },
+            "returnParameters": {
+              "id": 46716,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46713,
+                  "mutability": "mutable",
+                  "name": "CurrentUserBid",
+                  "nameLocation": "2853:14:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46717,
+                  "src": "2846:21:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 46712,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2846:6:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46715,
+                  "mutability": "mutable",
+                  "name": "BidTime",
+                  "nameLocation": "2876:7:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46717,
+                  "src": "2869:14:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint40",
+                    "typeString": "uint40"
+                  },
+                  "typeName": {
+                    "id": 46714,
+                    "name": "uint40",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2869:6:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint40",
+                      "typeString": "uint40"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2845:39:33"
+            },
+            "scope": 46754,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 46725,
+            "nodeType": "EventDefinition",
+            "src": "2893:126:33",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "60dacd4457ba58bb4b72bb599d92b70c415b3f8e91d8cb628562bb89e370f81c",
+            "name": "AuctionLaunched",
+            "nameLocation": "2899:15:33",
+            "parameters": {
+              "id": 46724,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46719,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "StartTime",
+                  "nameLocation": "2941:9:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46725,
+                  "src": "2925:25:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46718,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2925:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46721,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "EndTime",
+                  "nameLocation": "2977:7:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46725,
+                  "src": "2961:23:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46720,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2961:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46723,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "StartBid",
+                  "nameLocation": "3003:8:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46725,
+                  "src": "2995:16:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46722,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2995:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2914:104:33"
+            }
+          },
+          {
+            "id": 46733,
+            "nodeType": "EventDefinition",
+            "src": "3027:136:33",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "e0cd90766c15f7b4f6005cfeac58557360ca7dad41abeeb585e961cda38da3c1",
+            "name": "RewardIssued",
+            "nameLocation": "3033:12:33",
+            "parameters": {
+              "id": 46732,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46727,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "AuctionStartTime",
+                  "nameLocation": "3072:16:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46733,
+                  "src": "3056:32:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46726,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3056:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46729,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "Wallet",
+                  "nameLocation": "3115:6:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46733,
+                  "src": "3099:22:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 46728,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3099:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46731,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "BidSize",
+                  "nameLocation": "3148:7:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46733,
+                  "src": "3132:23:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46730,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3132:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3045:117:33"
+            }
+          },
+          {
+            "id": 46745,
+            "nodeType": "EventDefinition",
+            "src": "3171:184:33",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "fb8c920d611499f9068f09b99aa3a09f6a1f943202390e2dfad122766e20ece3",
+            "name": "BidPlaced",
+            "nameLocation": "3177:9:33",
+            "parameters": {
+              "id": 46744,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46735,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "Wallet",
+                  "nameLocation": "3213:6:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46745,
+                  "src": "3197:22:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 46734,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3197:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46737,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "AuctionStartTime",
+                  "nameLocation": "3246:16:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46745,
+                  "src": "3230:32:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46736,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3230:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46739,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "Size",
+                  "nameLocation": "3281:4:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46745,
+                  "src": "3273:12:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46738,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3273:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46741,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "AuctionEndTime",
+                  "nameLocation": "3304:14:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46745,
+                  "src": "3296:22:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46740,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3296:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46743,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "Transferred",
+                  "nameLocation": "3336:11:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46745,
+                  "src": "3329:18:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 46742,
+                    "name": "int256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3329:6:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3186:168:33"
+            }
+          },
+          {
+            "id": 46753,
+            "nodeType": "EventDefinition",
+            "src": "3363:126:33",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "17c1d890f3ffba4991a771a0b55802a1eff3159d0cce950fb68d1360530393d9",
+            "name": "RefundClaimed",
+            "nameLocation": "3369:13:33",
+            "parameters": {
+              "id": 46752,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46747,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "Wallet",
+                  "nameLocation": "3409:6:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46753,
+                  "src": "3393:22:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 46746,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3393:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46749,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "AuctionStartTime",
+                  "nameLocation": "3442:16:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46753,
+                  "src": "3426:32:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46748,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3426:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46751,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "Size",
+                  "nameLocation": "3477:4:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 46753,
+                  "src": "3469:12:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 46750,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3469:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3382:106:33"
+            }
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IAuction",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          46754
+        ],
+        "name": "IAuction",
+        "nameLocation": "77:8:33",
+        "scope": 46755,
+        "usedErrors": [],
+        "usedEvents": [
+          46725,
+          46733,
+          46745,
+          46753
+        ]
+      }
+    ],
+    "license": "UNLICENSED"
+  },
+  "id": 33
+}
