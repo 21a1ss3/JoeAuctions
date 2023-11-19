@@ -10,10 +10,10 @@ import {IJoeMerchNft} from "./IJoeMerchNft.sol";
 
 contract JoeMerchNft is ERC721, Ownable2Step, IJoeMerchNft {
     constructor(address owner)
-        ERC721("Joe Merch", "") Ownable(owner)
+        ERC721("Joe Merch", "$JOE") Ownable(owner)
     {
             Auction = address(0);
-            LastTokenId = 1;
+            LastTokenId = 0;
     }
 
     address                 public                  Auction;
@@ -39,8 +39,7 @@ contract JoeMerchNft is ERC721, Ownable2Step, IJoeMerchNft {
 
 
     function Mint(address user) public onlyAuction {
-        _mint(user, LastTokenId);
-        LastTokenId++;
+        _mint(user, ++LastTokenId);
     }
 
     function _update(address to, uint256 tokenId, address auth) internal override returns (address) {
