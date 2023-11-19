@@ -11,7 +11,7 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
     constructor(address owner, address executor) 
         Ownable(owner) {
 
-        _executor = executor;
+        Executor = executor;
 
         AuctionEntry memory emptyBid;
 
@@ -24,7 +24,7 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
     }
 
 
-    address                             private             _executor;
+    address                             public              Executor;
     uint40                              public              AuctionEndTime;
     uint40                              public              AuctionStartTime;
 
@@ -43,7 +43,7 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
 
 
     modifier onlyExecutor() {
-        require(_executor == _msgSender(), "Unauthorized (E)");
+        require(Executor == _msgSender(), "Unauthorized (E)");
         _;
     }
 
@@ -61,7 +61,7 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
     }
 
     function SetExecutor(address executor) public onlyOwner {
-        _executor = executor;
+        Executor = executor;
     }
 
     function Withdraw() public onlyExecutor {
@@ -86,7 +86,7 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
         //TODO: Emit event
     }
 
-    function IssueUserReward() public { //onlyExecutor?
+    function ClaimReward() public { //onlyExecutor?
         _issueUserReward();
     }
 
@@ -114,21 +114,23 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
         return _isAlive(AuctionEndTime);
     }
 
-    function IncreaseBid(uint256 bidSize) public {
-        //require(_msgSender().code.length == 0, "Only EOA can place a bids");
+    function PlaceBid(uint256 bidSize) public {
+        require(_msgSender().code.length == 0, "Only EOA can place a bids");
         require(bidSize < type(uint96).max, "bidSize too big");
 
         uint40 auctionEndTime = AuctionEndTime;
         require(_isAlive(auctionEndTime), "No active auctions");
+        require(
+            bidSize >= (Bids[BestBidWallet].CurrentUserBid + _bidIncrement()),
+            "New bid shall be greater or equal on BidIncrement to current best bid"
+        );
         
         AuctionEntry memory userEntry = Bids[_msgSender()];
 
+        int256 transferDelta = int256(bidSize) - int96(userEntry.CurrentUserBid);
         userEntry.BidTime = AuctionStartTime;
-        userEntry.CurrentUserBid += uint96(bidSize);
-        require(
-            (userEntry.CurrentUserBid + _bidIncrement()) >= Bids[BestBidWallet].CurrentUserBid,
-            "New bid shall be greater or equal on BidIncrement to current best bid"
-        );
+        userEntry.CurrentUserBid = uint96(bidSize);
+
         Bids[_msgSender()] = userEntry;
         BestBidWallet = _msgSender();
 
@@ -137,7 +139,10 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
         if (timeToEnd < _auctionTimeExtraWindow())
             AuctionEndTime = auctionEndTime + timeToEnd;
 
-        _bidToken().transferFrom(_msgSender(), address(this), bidSize);
+        if (transferDelta > 0)
+            _bidToken().transferFrom(_msgSender(), address(this), uint256(transferDelta));
+        else if (transferDelta < 0)
+            _bidToken().transfer(_msgSender(), uint256(-transferDelta));
 
         //TODO: Issue event
     }
@@ -156,6 +161,9 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
 
         // if user won
         if (BestBidWallet == _msgSender())
+            return;
+
+        if (userEntry.CurrentUserBid == 0)
             return;
 
         uint256 repayAmount = userEntry.CurrentUserBid;     //Re-entarnce protection
