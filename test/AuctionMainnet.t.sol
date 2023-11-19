@@ -55,7 +55,7 @@ contract AuctionMainnetTest is Test {
         09. Change Executor
         10. Start Auction, Place 2 bid, Try redeem -> 0
         11. Start Auction, Place 3 bid, wait for expire, double issue reward -> check NFT and winner Bid state
-        12. NFT Transafer modes
+        12. NFT Transfer modes
     //*/
 
     //Access tests
