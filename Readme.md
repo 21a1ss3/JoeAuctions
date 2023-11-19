@@ -4,6 +4,7 @@
 2. Run `forge build` into root folder. It will generate you output in out folder
 
 **Sequence of operation**
+
 Initial:
 
 1. Deploy JoeAuctionsMainnet
