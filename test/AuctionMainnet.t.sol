@@ -4,7 +4,7 @@ pragma solidity ^0.8.23;
 
 import "forge-std/Test.sol";
 import {JoeAuctionsMainnet} from "../src/AuctionMainnet.sol";
-import {JoeAuctionsGeneric} from "../src/AuctionGenericV1.sol";
+import {JoeAuctionsGeneric} from "../src/JoeAuctionsGeneric.sol";
 import {IAuction} from "../src/IAuction.sol";
 import {IERC20} from "openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 import {IJoeMerchNft} from "../src/IJoeMerchNft.sol";

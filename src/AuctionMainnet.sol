@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.23;
 
-import "./AuctionGenericV1.sol";
+import "./JoeAuctionsGeneric.sol";
 
 
 contract JoeAuctionsMainnet is JoeAuctionsGeneric {
