@@ -136,12 +136,10 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
 
         Bids[_msgSender()] = userEntry;
         BestBidWallet = _msgSender();
-
-        uint40 timeToEnd = uint40(auctionEndTime - block.timestamp);
         
-        if (timeToEnd < _auctionTimeExtraWindow())
+        if ((auctionEndTime - block.timestamp) < _auctionTimeExtraWindow())
         {
-            auctionEndTime += timeToEnd;
+            auctionEndTime = uint40(block.timestamp) + _auctionTimeExtraWindow();
             AuctionEndTime = auctionEndTime;
         }
 

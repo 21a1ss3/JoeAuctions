@@ -1351,7 +1351,7 @@ contract AuctionMainnetTest is Test {
         _launchAuction();
 
         uint256 extraTimeWnd = AuctionContract.AuctionTimeExtraWindow();
-        uint256 oldExpirationTime = AuctionContract.AuctionEndTime();
+        //uint256 oldExpirationTime = AuctionContract.AuctionEndTime();
 
         vm.warp(block.timestamp + 1 days - (extraTimeWnd / 2));
         vm.roll(block.number + (1 days - (extraTimeWnd / 2)) / 2);
@@ -1360,6 +1360,6 @@ contract AuctionMainnetTest is Test {
 
         uint256 newExpirationTime = AuctionContract.AuctionEndTime();
 
-        assertEq(newExpirationTime - oldExpirationTime, extraTimeWnd / 2);
+        assertEq(newExpirationTime, block.timestamp + extraTimeWnd);
     }
 }
