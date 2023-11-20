@@ -3,7 +3,7 @@ pragma solidity ^0.8.23;
 
 
 import "forge-std/Test.sol";
-import {JoeAuctionsMainnet} from "../src/AuctionMainnet.sol";
+import {JoeAuctionsGoerli} from "../src/AuctionGoerli.sol";
 import {JoeAuctionsGeneric} from "../src/JoeAuctionsGeneric.sol";
 import {IAuction} from "../src/IAuction.sol";
 import {IERC20} from "openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
@@ -11,12 +11,12 @@ import {IJoeMerchNft} from "../src/IJoeMerchNft.sol";
 import {JoeMerchNft} from "../src/JoeMerchNft.sol";
 
 
-contract AuctionMainnetTest is Test {
+contract AuctionGoerliTest is Test {
 
     function setUp() public {
-        vm.createSelectFork("ethereum");
+        vm.createSelectFork("goerli");
 
-        AuctionContract = new JoeAuctionsMainnet(Owner, Executor);
+        AuctionContract = new JoeAuctionsGoerli(Owner, Executor);
         MerchNft = new JoeMerchNft(Owner);
 
         vm.startPrank(Owner);
@@ -30,7 +30,7 @@ contract AuctionMainnetTest is Test {
         console.log("               NFT Merch: %s", address(MerchNft));
     }
 
-    JoeAuctionsMainnet                 public                 AuctionContract;
+    JoeAuctionsGoerli                  public                 AuctionContract;
     address                            public                 Owner               = address(uint160(0xAABBCC0000));
     address                            public                 Executor            = address(uint160(0xFFDDEE0002));
     address[3]                         public                 Users               = [
@@ -39,7 +39,7 @@ contract AuctionMainnetTest is Test {
                                                                                         address(uint160(0xCC00220003))
                                                                                     ];
     //
-    IERC20                             public                 JoeErc20            = IERC20(0x76e222b07C53D28b89b0bAc18602810Fc22B49A8);
+    IERC20                             public                 JoeErc20            = IERC20(0x1544E17C3a17B2EeD9106c060aeb383A4d25E1C9);
     JoeMerchNft                        public                 MerchNft;
 
     //Base set of tests:
