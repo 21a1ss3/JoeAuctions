@@ -1,7 +1,12 @@
 **How to build**
 
 1. Install foundry (https://book.getfoundry.sh/)
-2. Run `forge build` into root folder. It will generate you output in out folder
+2. Run `forge build` into root folder. It will generate you output in `out` folder
+
+**How to run tests**
+
+1. Fix RPC url in `foundry.toml`
+2. Run `forge test` or `forge test -vvv` for detailed output
 
 **Sequence of operation**
 
