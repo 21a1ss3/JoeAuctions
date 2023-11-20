@@ -5,8 +5,9 @@
 
 **How to run tests**
 
-1. Fix RPC url in `foundry.toml`
-2. Run `forge test` or `forge test -vvv` for detailed output
+1. Install foundry (https://book.getfoundry.sh/)
+2. Fix RPC url in `foundry.toml`
+3. Run `forge test` or `forge test -vvv` for detailed output
 
 **Sequence of operation**
 
