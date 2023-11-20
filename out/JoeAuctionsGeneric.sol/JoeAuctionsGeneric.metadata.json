@@ -1,0 +1,682 @@
+{
+  "compiler": {
+    "version": "0.8.23+commit.f704f362"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnableInvalidOwner",
+        "type": "error"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          }
+        ],
+        "name": "OwnableUnauthorizedAccount",
+        "type": "error"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "StartTime",
+            "type": "uint256"
+          },
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "EndTime",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "StartBid",
+            "type": "uint256"
+          }
+        ],
+        "name": "AuctionLaunched",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "Wallet",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "AuctionStartTime",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "Size",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "AuctionEndTime",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "int256",
+            "name": "Transferred",
+            "type": "int256"
+          }
+        ],
+        "name": "BidPlaced",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "previousOwner",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipTransferStarted",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "previousOwner",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "Wallet",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "AuctionStartTime",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "Size",
+            "type": "uint256"
+          }
+        ],
+        "name": "RefundClaimed",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "AuctionStartTime",
+            "type": "uint256"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "Wallet",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "BidSize",
+            "type": "uint256"
+          }
+        ],
+        "name": "RewardIssued",
+        "type": "event"
+      },
+      {
+        "inputs": [],
+        "name": "AuctionEndTime",
+        "outputs": [
+          {
+            "internalType": "uint40",
+            "name": "",
+            "type": "uint40"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "AuctionStartTime",
+        "outputs": [
+          {
+            "internalType": "uint40",
+            "name": "",
+            "type": "uint40"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "AuctionTimeExtraWindow",
+        "outputs": [
+          {
+            "internalType": "uint40",
+            "name": "",
+            "type": "uint40"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "BestBidWallet",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "BidIncrement",
+        "outputs": [
+          {
+            "internalType": "uint96",
+            "name": "",
+            "type": "uint96"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "name": "Bids",
+        "outputs": [
+          {
+            "internalType": "uint96",
+            "name": "CurrentUserBid",
+            "type": "uint96"
+          },
+          {
+            "internalType": "uint40",
+            "name": "BidTime",
+            "type": "uint40"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "ClaimReward",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "Executor",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "IsAlive",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint40",
+            "name": "endTime",
+            "type": "uint40"
+          },
+          {
+            "internalType": "uint96",
+            "name": "minBid",
+            "type": "uint96"
+          }
+        ],
+        "name": "LaunchAuction",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "MerchNft",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address[]",
+            "name": "targets",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "values",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "bytes[]",
+            "name": "calldatas",
+            "type": "bytes[]"
+          }
+        ],
+        "name": "Multicall",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "bidSize",
+            "type": "uint256"
+          }
+        ],
+        "name": "PlaceBid",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "RedeemRefund",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "executor",
+            "type": "address"
+          }
+        ],
+        "name": "SetExecutor",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "Withdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "WithdrawBalance",
+        "outputs": [
+          {
+            "internalType": "uint96",
+            "name": "",
+            "type": "uint96"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "acceptOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "pendingOwner",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "errors": {
+        "OwnableInvalidOwner(address)": [
+          {
+            "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+          }
+        ],
+        "OwnableUnauthorizedAccount(address)": [
+          {
+            "details": "The caller account is not authorized to perform an operation."
+          }
+        ]
+      },
+      "kind": "dev",
+      "methods": {
+        "AuctionTimeExtraWindow()": {
+          "details": "Returns current auction time window when end time is extended",
+          "returns": {
+            "_0": "uint40 auction time window"
+          }
+        },
+        "BidIncrement()": {
+          "details": "Returns current bid increment required to outbid previous user",
+          "returns": {
+            "_0": "uint96 bid increment"
+          }
+        },
+        "ClaimReward()": {
+          "details": "Claims a reward for a winner"
+        },
+        "IsAlive()": {
+          "details": "Returns a current state of Auction",
+          "returns": {
+            "_0": "bool true if auction is active, false - otherwise"
+          }
+        },
+        "MerchNft()": {
+          "details": "Returns current Joe Merch NFT contract used to reward user",
+          "returns": {
+            "_0": "address Address of Joe Merch NFT contract"
+          }
+        },
+        "PlaceBid(uint256)": {
+          "details": "Placing a new bid or resizing user bid",
+          "params": {
+            "bidSize": "New absolute size of user Bid"
+          }
+        },
+        "RedeemRefund()": {
+          "details": "Refunds outbid users"
+        },
+        "acceptOwnership()": {
+          "details": "The new owner accepts the ownership transfer."
+        },
+        "owner()": {
+          "details": "Returns the address of the current owner."
+        },
+        "pendingOwner()": {
+          "details": "Returns the address of the pending owner."
+        },
+        "renounceOwnership()": {
+          "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+        },
+        "transferOwnership(address)": {
+          "details": "Starts the ownership transfer of the contract to a new account. Replaces the pending transfer if there is one. Can only be called by the current owner."
+        }
+      },
+      "stateVariables": {
+        "AuctionEndTime": {
+          "details": "Returns timestamp when current Auction stops(-ed), inclusive",
+          "return": "uint40 Auction end time (same units as block.timestamp)",
+          "returns": {
+            "_0": "uint40 Auction end time (same units as block.timestamp)"
+          }
+        },
+        "AuctionStartTime": {
+          "details": "Returns time when current Auction has been launched",
+          "return": "uint40 Auction start time (same units as block.timestamp)",
+          "returns": {
+            "_0": "uint40 Auction start time (same units as block.timestamp)"
+          }
+        },
+        "BestBidWallet": {
+          "details": "Returns current best bid wallet -or- 0xfffff..fff",
+          "return": "address Current best bid wallet",
+          "returns": {
+            "_0": "address Current best bid wallet"
+          }
+        },
+        "Bids": {
+          "details": "Returns status of user's Bid",
+          "returns": {
+            "BidTime": "Auction start timestamp described associated auction",
+            "CurrentUserBid": "Current user's bid size"
+          }
+        }
+      },
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {
+        "AuctionEndTime()": {
+          "notice": "Returns timestamp when current Auction stops(-ed), inclusive"
+        },
+        "AuctionStartTime()": {
+          "notice": "Returns time when current Auction has been launched"
+        },
+        "AuctionTimeExtraWindow()": {
+          "notice": "Returns current auction time window when end time is extended"
+        },
+        "BestBidWallet()": {
+          "notice": "Returns current best bid wallet -or- 0xfffff..fff"
+        },
+        "BidIncrement()": {
+          "notice": "Returns current bid increment required to outbid previous user"
+        },
+        "Bids(address)": {
+          "notice": "Returns status of user's Bid"
+        },
+        "ClaimReward()": {
+          "notice": "Claims a reward for a winner"
+        },
+        "IsAlive()": {
+          "notice": "Returns a current state of Auction"
+        },
+        "MerchNft()": {
+          "notice": "Returns current Joe Merch NFT contract used to reward user"
+        },
+        "PlaceBid(uint256)": {
+          "notice": "Placing a new bid or resizing user bid"
+        },
+        "RedeemRefund()": {
+          "notice": "Refunds outbid users"
+        }
+      },
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/JoeAuctionsGeneric.sol": "JoeAuctionsGeneric"
+    },
+    "evmVersion": "shanghai",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":ds-test/=lib/forge-std/lib/ds-test/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+      ":forge-std/=lib/forge-std/src/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/"
+    ]
+  },
+  "sources": {
+    "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
+      "keccak256": "0xe889e9f6b8469155c967f403ad7508eaa66af8cad1cb9a003536a8e4f281d348",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://e6e32c81c8d84199eda0de40d33bb77c7acbb482e3f545d5cfba8195af0a88e0",
+        "dweb:/ipfs/Qmaf1WAinzjYWGNxRzCTmn2QABFWS912HwC8eiD7cyTgis"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/access/Ownable2Step.sol": {
+      "keccak256": "0x135d93f386a72351aa8e71a4b87fe61b2b03a855d232a3b97b4576b8f5cfad51",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://da80bb9081340a3c9b3020831669f39daa3d372d16fa7369527a287dc8faebbf",
+        "dweb:/ipfs/QmRsWauuRmthbMkreLgSS68MWxjwGFKwPNgxHe8bJh5BY5"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
+      "keccak256": "0x1c15854d415493331ff06ef9b0899f81dc6960189fa86cfd1b29c4374cc336a3",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://5cb41bc9b9e1f5617d8e826c07fb21ecf986f70b4b5b395d6ecf9c5eb9f1a204",
+        "dweb:/ipfs/QmNvJhvpJE8b3nyz7RaMCSPhfbmzj1TLuL3a7NkS9AHkGJ"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/Context.sol": {
+      "keccak256": "0xa98ceb8734832ea51ee2ea6bafded757acaba7d232143ac9e50565760f7cf366",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://51854d853bb0a17e1d669a9f33699986d13ff42425c1e2eeea2ffc9190e6e42a",
+        "dweb:/ipfs/QmWwqcGd2pWwnBcKwBKC7CWYsSvtWUkZ1qJTSQ3fhednfA"
+      ]
+    },
+    "src/IAuction.sol": {
+      "keccak256": "0x1a5815b677445720f0c687b433bd6e82220f07a15cc04fa5aef5b276cdc805be",
+      "license": "UNLICENSED",
+      "urls": [
+        "bzz-raw://b1640858954cb9ef1f43ef0bd4668359a97ee99410cae73bfe69ac0f3f55cbed",
+        "dweb:/ipfs/QmZZMVnWhtcyF3XetiiYmo4bTRGSpATUaqpxiXBENihywq"
+      ]
+    },
+    "src/IJoeMerchNft.sol": {
+      "keccak256": "0x1df0362c35d80fe12fba32d5e4eba3c91383c4d768c218f017371d65b8d38547",
+      "license": "UNLICENSED",
+      "urls": [
+        "bzz-raw://58da9db0484277aa9ffd604daedd979039cc0090488d0bbad9c657091a11ac68",
+        "dweb:/ipfs/QmTgxy52U9sgn1GoC9dMxY9o6YbSuNvDap8MjiaAne9UgR"
+      ]
+    },
+    "src/JoeAuctionsGeneric.sol": {
+      "keccak256": "0xbb9c1efa0c31e99018b060b951529705efbd08600112e7f85d40dd3a473de8f1",
+      "license": "UNLICENSED",
+      "urls": [
+        "bzz-raw://261d7b0dd434f9169c66f2a2d98698ded224171abf996016fac726afa62fb762",
+        "dweb:/ipfs/QmfG1Kat6tEJh4YDo3YvgLH3RcKAsCEk2q2r19rpmKTuK6"
+      ]
+    }
+  },
+  "version": 1
+}

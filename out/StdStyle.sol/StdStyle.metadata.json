@@ -1,0 +1,59 @@
+{
+  "compiler": {
+    "version": "0.8.23+commit.f704f362"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {},
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "lib/forge-std/src/StdStyle.sol": "StdStyle"
+    },
+    "evmVersion": "shanghai",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":ds-test/=lib/forge-std/lib/ds-test/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+      ":forge-std/=lib/forge-std/src/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/"
+    ]
+  },
+  "sources": {
+    "lib/forge-std/src/StdStyle.sol": {
+      "keccak256": "0xe3e5d092bfcad345b1c25ea431473039295fbd9efde2b702881f1f4edc2c1417",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://89b16a8e997a1bed9ffb113924222d521542b1bc13b475763d8a8b890a27cd8a",
+        "dweb:/ipfs/QmXeeuDTgjBYWgun7EiQgUJZF9JVKdARNM8qobLHdG9r4Q"
+      ]
+    },
+    "lib/forge-std/src/Vm.sol": {
+      "keccak256": "0x1be1b9201d9dbcc9bf36a6924706fd2b495bd3060eefaaf25b84ab9d434910e1",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://909e5954a147cdd2103b18ff537ca6d577297ea98169f976c47a2387541b595c",
+        "dweb:/ipfs/QmcXSVvt7EN7fjMcgfBGBXnpzgWysxqwu2iLuuPAymtbFE"
+      ]
+    }
+  },
+  "version": 1
+}

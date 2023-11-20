@@ -93,19 +93,19 @@
   },
   "ast": {
     "absolutePath": "src/IJoeMerchNft.sol",
-    "id": 46763,
+    "id": 47001,
     "exportedSymbols": {
       "IJoeMerchNft": [
-        46762
+        47000
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "40:99:34",
+    "src": "40:99:37",
     "nodes": [
       {
-        "id": 46756,
+        "id": 46994,
         "nodeType": "PragmaDirective",
-        "src": "40:23:34",
+        "src": "40:23:37",
         "nodes": [],
         "literals": [
           "solidity",
@@ -115,34 +115,34 @@
         ]
       },
       {
-        "id": 46762,
+        "id": 47000,
         "nodeType": "ContractDefinition",
-        "src": "69:70:34",
+        "src": "69:70:37",
         "nodes": [
           {
-            "id": 46761,
+            "id": 46999,
             "nodeType": "FunctionDefinition",
-            "src": "99:37:34",
+            "src": "99:37:37",
             "nodes": [],
             "functionSelector": "3c3284d1",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "Mint",
-            "nameLocation": "108:4:34",
+            "nameLocation": "108:4:37",
             "parameters": {
-              "id": 46759,
+              "id": 46997,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46758,
+                  "id": 46996,
                   "mutability": "mutable",
                   "name": "user",
-                  "nameLocation": "121:4:34",
+                  "nameLocation": "121:4:37",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46761,
-                  "src": "113:12:34",
+                  "scope": 46999,
+                  "src": "113:12:37",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -150,10 +150,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46757,
+                    "id": 46995,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "113:7:34",
+                    "src": "113:7:37",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -163,15 +163,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "112:14:34"
+              "src": "112:14:37"
             },
             "returnParameters": {
-              "id": 46760,
+              "id": 46998,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "135:0:34"
+              "src": "135:0:37"
             },
-            "scope": 46762,
+            "scope": 47000,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -184,16 +184,16 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          46762
+          47000
         ],
         "name": "IJoeMerchNft",
-        "nameLocation": "79:12:34",
-        "scope": 46763,
+        "nameLocation": "79:12:37",
+        "scope": 47001,
         "usedErrors": [],
         "usedEvents": []
       }
     ],
     "license": "UNLICENSED"
   },
-  "id": 34
+  "id": 37
 }

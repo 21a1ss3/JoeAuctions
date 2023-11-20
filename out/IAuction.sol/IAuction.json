@@ -679,19 +679,19 @@
   },
   "ast": {
     "absolutePath": "src/IAuction.sol",
-    "id": 46755,
+    "id": 46993,
     "exportedSymbols": {
       "IAuction": [
-        46754
+        46992
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "40:3452:33",
+    "src": "40:3452:36",
     "nodes": [
       {
-        "id": 46646,
+        "id": 46884,
         "nodeType": "PragmaDirective",
-        "src": "40:23:33",
+        "src": "40:23:36",
         "nodes": [],
         "literals": [
           "solidity",
@@ -701,26 +701,26 @@
         ]
       },
       {
-        "id": 46754,
+        "id": 46992,
         "nodeType": "ContractDefinition",
-        "src": "67:3425:33",
+        "src": "67:3425:36",
         "nodes": [
           {
-            "id": 46651,
+            "id": 46889,
             "nodeType": "StructDefinition",
-            "src": "153:86:33",
+            "src": "153:86:36",
             "nodes": [],
             "canonicalName": "IAuction.AuctionEntry",
             "members": [
               {
                 "constant": false,
-                "id": 46648,
+                "id": 46886,
                 "mutability": "mutable",
                 "name": "CurrentUserBid",
-                "nameLocation": "191:14:33",
+                "nameLocation": "191:14:36",
                 "nodeType": "VariableDeclaration",
-                "scope": 46651,
-                "src": "184:21:33",
+                "scope": 46889,
+                "src": "184:21:36",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -728,10 +728,10 @@
                   "typeString": "uint96"
                 },
                 "typeName": {
-                  "id": 46647,
+                  "id": 46885,
                   "name": "uint96",
                   "nodeType": "ElementaryTypeName",
-                  "src": "184:6:33",
+                  "src": "184:6:36",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint96",
                     "typeString": "uint96"
@@ -741,13 +741,13 @@
               },
               {
                 "constant": false,
-                "id": 46650,
+                "id": 46888,
                 "mutability": "mutable",
                 "name": "BidTime",
-                "nameLocation": "224:7:33",
+                "nameLocation": "224:7:36",
                 "nodeType": "VariableDeclaration",
-                "scope": 46651,
-                "src": "216:15:33",
+                "scope": 46889,
+                "src": "216:15:36",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -755,10 +755,10 @@
                   "typeString": "uint40"
                 },
                 "typeName": {
-                  "id": 46649,
+                  "id": 46887,
                   "name": "uint40",
                   "nodeType": "ElementaryTypeName",
-                  "src": "216:6:33",
+                  "src": "216:6:36",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint40",
                     "typeString": "uint40"
@@ -768,19 +768,19 @@
               }
             ],
             "name": "AuctionEntry",
-            "nameLocation": "160:12:33",
-            "scope": 46754,
+            "nameLocation": "160:12:36",
+            "scope": 46992,
             "visibility": "public"
           },
           {
-            "id": 46655,
+            "id": 46893,
             "nodeType": "FunctionDefinition",
-            "src": "336:32:33",
+            "src": "336:32:36",
             "nodes": [],
             "documentation": {
-              "id": 46652,
+              "id": 46890,
               "nodeType": "StructuredDocumentation",
-              "src": "247:83:33",
+              "src": "247:83:36",
               "text": "@notice Claims a reward for a winner\n @dev Claims a reward for a winner"
             },
             "functionSelector": "79372f9a",
@@ -788,33 +788,33 @@
             "kind": "function",
             "modifiers": [],
             "name": "ClaimReward",
-            "nameLocation": "345:11:33",
+            "nameLocation": "345:11:36",
             "parameters": {
-              "id": 46653,
+              "id": 46891,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "356:2:33"
+              "src": "356:2:36"
             },
             "returnParameters": {
-              "id": 46654,
+              "id": 46892,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "367:0:33"
+              "src": "367:0:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46661,
+            "id": 46899,
             "nodeType": "FunctionDefinition",
-            "src": "544:48:33",
+            "src": "544:48:36",
             "nodes": [],
             "documentation": {
-              "id": 46656,
+              "id": 46894,
               "nodeType": "StructuredDocumentation",
-              "src": "376:162:33",
+              "src": "376:162:36",
               "text": "@notice Returns a current state of Auction\n @dev Returns a current state of Auction\n @return bool true if auction is active, false - otherwise"
             },
             "functionSelector": "1fc09c94",
@@ -822,26 +822,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "IsAlive",
-            "nameLocation": "553:7:33",
+            "nameLocation": "553:7:36",
             "parameters": {
-              "id": 46657,
+              "id": 46895,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "560:2:33"
+              "src": "560:2:36"
             },
             "returnParameters": {
-              "id": 46660,
+              "id": 46898,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46659,
+                  "id": 46897,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46661,
-                  "src": "586:4:33",
+                  "scope": 46899,
+                  "src": "586:4:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -849,10 +849,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46658,
+                    "id": 46896,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "586:4:33",
+                    "src": "586:4:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -861,22 +861,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "585:6:33"
+              "src": "585:6:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46667,
+            "id": 46905,
             "nodeType": "FunctionDefinition",
-            "src": "763:44:33",
+            "src": "763:44:36",
             "nodes": [],
             "documentation": {
-              "id": 46662,
+              "id": 46900,
               "nodeType": "StructuredDocumentation",
-              "src": "600:157:33",
+              "src": "600:157:36",
               "text": "@notice Placing a new bid or resizing user bid\n @dev Placing a new bid or resizing user bid\n @param bidSize New absolute size of user Bid"
             },
             "functionSelector": "967e5e95",
@@ -884,20 +884,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "PlaceBid",
-            "nameLocation": "772:8:33",
+            "nameLocation": "772:8:36",
             "parameters": {
-              "id": 46665,
+              "id": 46903,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46664,
+                  "id": 46902,
                   "mutability": "mutable",
                   "name": "bidSize",
-                  "nameLocation": "789:7:33",
+                  "nameLocation": "789:7:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46667,
-                  "src": "781:15:33",
+                  "scope": 46905,
+                  "src": "781:15:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -905,10 +905,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46663,
+                    "id": 46901,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "781:7:33",
+                    "src": "781:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -917,28 +917,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "780:17:33"
+              "src": "780:17:36"
             },
             "returnParameters": {
-              "id": 46666,
+              "id": 46904,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "806:0:33"
+              "src": "806:0:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46671,
+            "id": 46909,
             "nodeType": "FunctionDefinition",
-            "src": "888:33:33",
+            "src": "888:33:36",
             "nodes": [],
             "documentation": {
-              "id": 46668,
+              "id": 46906,
               "nodeType": "StructuredDocumentation",
-              "src": "815:67:33",
+              "src": "815:67:36",
               "text": "@notice Refunds outbid users\n @dev Refunds outbid users"
             },
             "functionSelector": "e4fb5613",
@@ -946,33 +946,33 @@
             "kind": "function",
             "modifiers": [],
             "name": "RedeemRefund",
-            "nameLocation": "897:12:33",
+            "nameLocation": "897:12:36",
             "parameters": {
-              "id": 46669,
+              "id": 46907,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "909:2:33"
+              "src": "909:2:36"
             },
             "returnParameters": {
-              "id": 46670,
+              "id": 46908,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "920:0:33"
+              "src": "920:0:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46677,
+            "id": 46915,
             "nodeType": "FunctionDefinition",
-            "src": "1130:55:33",
+            "src": "1130:55:36",
             "nodes": [],
             "documentation": {
-              "id": 46672,
+              "id": 46910,
               "nodeType": "StructuredDocumentation",
-              "src": "935:189:33",
+              "src": "935:189:36",
               "text": "@notice Returns current bid increment required to outbid previous user\n @dev Returns current bid increment required to outbid previous user\n @return uint96 bid increment"
             },
             "functionSelector": "b2048e5e",
@@ -980,26 +980,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "BidIncrement",
-            "nameLocation": "1139:12:33",
+            "nameLocation": "1139:12:36",
             "parameters": {
-              "id": 46673,
+              "id": 46911,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1151:2:33"
+              "src": "1151:2:36"
             },
             "returnParameters": {
-              "id": 46676,
+              "id": 46914,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46675,
+                  "id": 46913,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46677,
-                  "src": "1177:6:33",
+                  "scope": 46915,
+                  "src": "1177:6:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1007,10 +1007,10 @@
                     "typeString": "uint96"
                   },
                   "typeName": {
-                    "id": 46674,
+                    "id": 46912,
                     "name": "uint96",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1177:6:33",
+                    "src": "1177:6:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint96",
                       "typeString": "uint96"
@@ -1019,22 +1019,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1176:8:33"
+              "src": "1176:8:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46683,
+            "id": 46921,
             "nodeType": "FunctionDefinition",
-            "src": "1396:65:33",
+            "src": "1396:65:36",
             "nodes": [],
             "documentation": {
-              "id": 46678,
+              "id": 46916,
               "nodeType": "StructuredDocumentation",
-              "src": "1197:193:33",
+              "src": "1197:193:36",
               "text": "@notice Returns current auction time window when end time is extended\n @dev Returns current auction time window when end time is extended\n @return uint40 auction time window"
             },
             "functionSelector": "0d6e4f08",
@@ -1042,26 +1042,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "AuctionTimeExtraWindow",
-            "nameLocation": "1405:22:33",
+            "nameLocation": "1405:22:36",
             "parameters": {
-              "id": 46679,
+              "id": 46917,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1427:2:33"
+              "src": "1427:2:36"
             },
             "returnParameters": {
-              "id": 46682,
+              "id": 46920,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46681,
+                  "id": 46919,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46683,
-                  "src": "1453:6:33",
+                  "scope": 46921,
+                  "src": "1453:6:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1069,10 +1069,10 @@
                     "typeString": "uint40"
                   },
                   "typeName": {
-                    "id": 46680,
+                    "id": 46918,
                     "name": "uint40",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1453:6:33",
+                    "src": "1453:6:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint40",
                       "typeString": "uint40"
@@ -1081,22 +1081,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1452:8:33"
+              "src": "1452:8:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46689,
+            "id": 46927,
             "nodeType": "FunctionDefinition",
-            "src": "1681:52:33",
+            "src": "1681:52:36",
             "nodes": [],
             "documentation": {
-              "id": 46684,
+              "id": 46922,
               "nodeType": "StructuredDocumentation",
-              "src": "1473:202:33",
+              "src": "1473:202:36",
               "text": "@notice Returns current Joe Merch NFT contract used to reward user\n @dev Returns current Joe Merch NFT contract used to reward user\n @return address Address of Joe Merch NFT contract"
             },
             "functionSelector": "600d55c1",
@@ -1104,26 +1104,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "MerchNft",
-            "nameLocation": "1690:8:33",
+            "nameLocation": "1690:8:36",
             "parameters": {
-              "id": 46685,
+              "id": 46923,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1698:2:33"
+              "src": "1698:2:36"
             },
             "returnParameters": {
-              "id": 46688,
+              "id": 46926,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46687,
+                  "id": 46925,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46689,
-                  "src": "1724:7:33",
+                  "scope": 46927,
+                  "src": "1724:7:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1131,10 +1131,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46686,
+                    "id": 46924,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1724:7:33",
+                    "src": "1724:7:36",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1144,22 +1144,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1723:9:33"
+              "src": "1723:9:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46695,
+            "id": 46933,
             "nodeType": "FunctionDefinition",
-            "src": "1971:57:33",
+            "src": "1971:57:36",
             "nodes": [],
             "documentation": {
-              "id": 46690,
+              "id": 46928,
               "nodeType": "StructuredDocumentation",
-              "src": "1745:220:33",
+              "src": "1745:220:36",
               "text": "@notice Returns timestamp when current Auction stops(-ed), inclusive\n @dev Returns timestamp when current Auction stops(-ed), inclusive\n @return uint40 Auction end time (same units as block.timestamp)"
             },
             "functionSelector": "f3c88510",
@@ -1167,26 +1167,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "AuctionEndTime",
-            "nameLocation": "1980:14:33",
+            "nameLocation": "1980:14:36",
             "parameters": {
-              "id": 46691,
+              "id": 46929,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1994:2:33"
+              "src": "1994:2:36"
             },
             "returnParameters": {
-              "id": 46694,
+              "id": 46932,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46693,
+                  "id": 46931,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46695,
-                  "src": "2020:6:33",
+                  "scope": 46933,
+                  "src": "2020:6:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1194,10 +1194,10 @@
                     "typeString": "uint40"
                   },
                   "typeName": {
-                    "id": 46692,
+                    "id": 46930,
                     "name": "uint40",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2020:6:33",
+                    "src": "2020:6:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint40",
                       "typeString": "uint40"
@@ -1206,22 +1206,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2019:8:33"
+              "src": "2019:8:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46701,
+            "id": 46939,
             "nodeType": "FunctionDefinition",
-            "src": "2250:59:33",
+            "src": "2250:59:36",
             "nodes": [],
             "documentation": {
-              "id": 46696,
+              "id": 46934,
               "nodeType": "StructuredDocumentation",
-              "src": "2040:204:33",
+              "src": "2040:204:36",
               "text": "@notice Returns time when current Auction has been launched\n @dev Returns time when current Auction has been launched\n @return uint40 Auction start time (same units as block.timestamp)"
             },
             "functionSelector": "31bdf5ca",
@@ -1229,26 +1229,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "AuctionStartTime",
-            "nameLocation": "2259:16:33",
+            "nameLocation": "2259:16:36",
             "parameters": {
-              "id": 46697,
+              "id": 46935,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2275:2:33"
+              "src": "2275:2:36"
             },
             "returnParameters": {
-              "id": 46700,
+              "id": 46938,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46699,
+                  "id": 46937,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46701,
-                  "src": "2301:6:33",
+                  "scope": 46939,
+                  "src": "2301:6:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1256,10 +1256,10 @@
                     "typeString": "uint40"
                   },
                   "typeName": {
-                    "id": 46698,
+                    "id": 46936,
                     "name": "uint40",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2301:6:33",
+                    "src": "2301:6:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint40",
                       "typeString": "uint40"
@@ -1268,22 +1268,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2300:8:33"
+              "src": "2300:8:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46707,
+            "id": 46945,
             "nodeType": "FunctionDefinition",
-            "src": "2501:57:33",
+            "src": "2501:57:36",
             "nodes": [],
             "documentation": {
-              "id": 46702,
+              "id": 46940,
               "nodeType": "StructuredDocumentation",
-              "src": "2321:174:33",
+              "src": "2321:174:36",
               "text": "@notice Returns current best bid wallet -or- 0xfffff..fff\n @dev Returns current best bid wallet -or- 0xfffff..fff\n @return address Current best bid wallet"
             },
             "functionSelector": "bc537b76",
@@ -1291,26 +1291,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "BestBidWallet",
-            "nameLocation": "2510:13:33",
+            "nameLocation": "2510:13:36",
             "parameters": {
-              "id": 46703,
+              "id": 46941,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2523:2:33"
+              "src": "2523:2:36"
             },
             "returnParameters": {
-              "id": 46706,
+              "id": 46944,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46705,
+                  "id": 46943,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46707,
-                  "src": "2549:7:33",
+                  "scope": 46945,
+                  "src": "2549:7:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1318,10 +1318,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46704,
+                    "id": 46942,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2549:7:33",
+                    "src": "2549:7:36",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1331,22 +1331,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2548:9:33"
+              "src": "2548:9:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46717,
+            "id": 46955,
             "nodeType": "FunctionDefinition",
-            "src": "2793:92:33",
+            "src": "2793:92:36",
             "nodes": [],
             "documentation": {
-              "id": 46708,
+              "id": 46946,
               "nodeType": "StructuredDocumentation",
-              "src": "2570:217:33",
+              "src": "2570:217:36",
               "text": "@notice Returns status of user's Bid\n @dev Returns status of user's Bid\n @return CurrentUserBid Current user's bid size\n @return BidTime Auction start timestamp described associated auction"
             },
             "functionSelector": "0251e03e",
@@ -1354,20 +1354,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "Bids",
-            "nameLocation": "2802:4:33",
+            "nameLocation": "2802:4:36",
             "parameters": {
-              "id": 46711,
+              "id": 46949,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46710,
+                  "id": 46948,
                   "mutability": "mutable",
                   "name": "wallet",
-                  "nameLocation": "2815:6:33",
+                  "nameLocation": "2815:6:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46717,
-                  "src": "2807:14:33",
+                  "scope": 46955,
+                  "src": "2807:14:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1375,10 +1375,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46709,
+                    "id": 46947,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2807:7:33",
+                    "src": "2807:7:36",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1388,21 +1388,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2806:16:33"
+              "src": "2806:16:36"
             },
             "returnParameters": {
-              "id": 46716,
+              "id": 46954,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46713,
+                  "id": 46951,
                   "mutability": "mutable",
                   "name": "CurrentUserBid",
-                  "nameLocation": "2853:14:33",
+                  "nameLocation": "2853:14:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46717,
-                  "src": "2846:21:33",
+                  "scope": 46955,
+                  "src": "2846:21:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1410,10 +1410,10 @@
                     "typeString": "uint96"
                   },
                   "typeName": {
-                    "id": 46712,
+                    "id": 46950,
                     "name": "uint96",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2846:6:33",
+                    "src": "2846:6:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint96",
                       "typeString": "uint96"
@@ -1423,13 +1423,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46715,
+                  "id": 46953,
                   "mutability": "mutable",
                   "name": "BidTime",
-                  "nameLocation": "2876:7:33",
+                  "nameLocation": "2876:7:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46717,
-                  "src": "2869:14:33",
+                  "scope": 46955,
+                  "src": "2869:14:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1437,10 +1437,10 @@
                     "typeString": "uint40"
                   },
                   "typeName": {
-                    "id": 46714,
+                    "id": 46952,
                     "name": "uint40",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2869:6:33",
+                    "src": "2869:6:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint40",
                       "typeString": "uint40"
@@ -1449,36 +1449,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2845:39:33"
+              "src": "2845:39:36"
             },
-            "scope": 46754,
+            "scope": 46992,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46725,
+            "id": 46963,
             "nodeType": "EventDefinition",
-            "src": "2893:126:33",
+            "src": "2893:126:36",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "60dacd4457ba58bb4b72bb599d92b70c415b3f8e91d8cb628562bb89e370f81c",
             "name": "AuctionLaunched",
-            "nameLocation": "2899:15:33",
+            "nameLocation": "2899:15:36",
             "parameters": {
-              "id": 46724,
+              "id": 46962,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46719,
+                  "id": 46957,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "StartTime",
-                  "nameLocation": "2941:9:33",
+                  "nameLocation": "2941:9:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46725,
-                  "src": "2925:25:33",
+                  "scope": 46963,
+                  "src": "2925:25:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1486,10 +1486,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46718,
+                    "id": 46956,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2925:7:33",
+                    "src": "2925:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1499,14 +1499,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46721,
+                  "id": 46959,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "EndTime",
-                  "nameLocation": "2977:7:33",
+                  "nameLocation": "2977:7:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46725,
-                  "src": "2961:23:33",
+                  "scope": 46963,
+                  "src": "2961:23:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1514,10 +1514,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46720,
+                    "id": 46958,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2961:7:33",
+                    "src": "2961:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1527,14 +1527,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46723,
+                  "id": 46961,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "StartBid",
-                  "nameLocation": "3003:8:33",
+                  "nameLocation": "3003:8:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46725,
-                  "src": "2995:16:33",
+                  "scope": 46963,
+                  "src": "2995:16:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1542,10 +1542,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46722,
+                    "id": 46960,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2995:7:33",
+                    "src": "2995:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1554,32 +1554,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2914:104:33"
+              "src": "2914:104:36"
             }
           },
           {
-            "id": 46733,
+            "id": 46971,
             "nodeType": "EventDefinition",
-            "src": "3027:136:33",
+            "src": "3027:136:36",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "e0cd90766c15f7b4f6005cfeac58557360ca7dad41abeeb585e961cda38da3c1",
             "name": "RewardIssued",
-            "nameLocation": "3033:12:33",
+            "nameLocation": "3033:12:36",
             "parameters": {
-              "id": 46732,
+              "id": 46970,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46727,
+                  "id": 46965,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "AuctionStartTime",
-                  "nameLocation": "3072:16:33",
+                  "nameLocation": "3072:16:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46733,
-                  "src": "3056:32:33",
+                  "scope": 46971,
+                  "src": "3056:32:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1587,10 +1587,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46726,
+                    "id": 46964,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3056:7:33",
+                    "src": "3056:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1600,14 +1600,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46729,
+                  "id": 46967,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "Wallet",
-                  "nameLocation": "3115:6:33",
+                  "nameLocation": "3115:6:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46733,
-                  "src": "3099:22:33",
+                  "scope": 46971,
+                  "src": "3099:22:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1615,10 +1615,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46728,
+                    "id": 46966,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3099:7:33",
+                    "src": "3099:7:36",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1629,14 +1629,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46731,
+                  "id": 46969,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "BidSize",
-                  "nameLocation": "3148:7:33",
+                  "nameLocation": "3148:7:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46733,
-                  "src": "3132:23:33",
+                  "scope": 46971,
+                  "src": "3132:23:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1644,10 +1644,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46730,
+                    "id": 46968,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3132:7:33",
+                    "src": "3132:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1656,32 +1656,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3045:117:33"
+              "src": "3045:117:36"
             }
           },
           {
-            "id": 46745,
+            "id": 46983,
             "nodeType": "EventDefinition",
-            "src": "3171:184:33",
+            "src": "3171:184:36",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "fb8c920d611499f9068f09b99aa3a09f6a1f943202390e2dfad122766e20ece3",
             "name": "BidPlaced",
-            "nameLocation": "3177:9:33",
+            "nameLocation": "3177:9:36",
             "parameters": {
-              "id": 46744,
+              "id": 46982,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46735,
+                  "id": 46973,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "Wallet",
-                  "nameLocation": "3213:6:33",
+                  "nameLocation": "3213:6:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46745,
-                  "src": "3197:22:33",
+                  "scope": 46983,
+                  "src": "3197:22:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1689,10 +1689,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46734,
+                    "id": 46972,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3197:7:33",
+                    "src": "3197:7:36",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1703,14 +1703,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46737,
+                  "id": 46975,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "AuctionStartTime",
-                  "nameLocation": "3246:16:33",
+                  "nameLocation": "3246:16:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46745,
-                  "src": "3230:32:33",
+                  "scope": 46983,
+                  "src": "3230:32:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1718,10 +1718,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46736,
+                    "id": 46974,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3230:7:33",
+                    "src": "3230:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1731,14 +1731,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46739,
+                  "id": 46977,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "Size",
-                  "nameLocation": "3281:4:33",
+                  "nameLocation": "3281:4:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46745,
-                  "src": "3273:12:33",
+                  "scope": 46983,
+                  "src": "3273:12:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1746,10 +1746,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46738,
+                    "id": 46976,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3273:7:33",
+                    "src": "3273:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1759,14 +1759,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46741,
+                  "id": 46979,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "AuctionEndTime",
-                  "nameLocation": "3304:14:33",
+                  "nameLocation": "3304:14:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46745,
-                  "src": "3296:22:33",
+                  "scope": 46983,
+                  "src": "3296:22:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1774,10 +1774,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46740,
+                    "id": 46978,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3296:7:33",
+                    "src": "3296:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1787,14 +1787,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46743,
+                  "id": 46981,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "Transferred",
-                  "nameLocation": "3336:11:33",
+                  "nameLocation": "3336:11:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46745,
-                  "src": "3329:18:33",
+                  "scope": 46983,
+                  "src": "3329:18:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1802,10 +1802,10 @@
                     "typeString": "int256"
                   },
                   "typeName": {
-                    "id": 46742,
+                    "id": 46980,
                     "name": "int256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3329:6:33",
+                    "src": "3329:6:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -1814,32 +1814,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3186:168:33"
+              "src": "3186:168:36"
             }
           },
           {
-            "id": 46753,
+            "id": 46991,
             "nodeType": "EventDefinition",
-            "src": "3363:126:33",
+            "src": "3363:126:36",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "17c1d890f3ffba4991a771a0b55802a1eff3159d0cce950fb68d1360530393d9",
             "name": "RefundClaimed",
-            "nameLocation": "3369:13:33",
+            "nameLocation": "3369:13:36",
             "parameters": {
-              "id": 46752,
+              "id": 46990,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46747,
+                  "id": 46985,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "Wallet",
-                  "nameLocation": "3409:6:33",
+                  "nameLocation": "3409:6:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46753,
-                  "src": "3393:22:33",
+                  "scope": 46991,
+                  "src": "3393:22:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1847,10 +1847,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46746,
+                    "id": 46984,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3393:7:33",
+                    "src": "3393:7:36",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1861,14 +1861,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46749,
+                  "id": 46987,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "AuctionStartTime",
-                  "nameLocation": "3442:16:33",
+                  "nameLocation": "3442:16:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46753,
-                  "src": "3426:32:33",
+                  "scope": 46991,
+                  "src": "3426:32:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1876,10 +1876,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46748,
+                    "id": 46986,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3426:7:33",
+                    "src": "3426:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1889,14 +1889,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46751,
+                  "id": 46989,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "Size",
-                  "nameLocation": "3477:4:33",
+                  "nameLocation": "3477:4:36",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46753,
-                  "src": "3469:12:33",
+                  "scope": 46991,
+                  "src": "3469:12:36",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1904,10 +1904,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46750,
+                    "id": 46988,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3469:7:33",
+                    "src": "3469:7:36",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1916,7 +1916,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3382:106:33"
+              "src": "3382:106:36"
             }
           }
         ],
@@ -1927,21 +1927,21 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          46754
+          46992
         ],
         "name": "IAuction",
-        "nameLocation": "77:8:33",
-        "scope": 46755,
+        "nameLocation": "77:8:36",
+        "scope": 46993,
         "usedErrors": [],
         "usedEvents": [
-          46725,
-          46733,
-          46745,
-          46753
+          46963,
+          46971,
+          46983,
+          46991
         ]
       }
     ],
     "license": "UNLICENSED"
   },
-  "id": 33
+  "id": 36
 }

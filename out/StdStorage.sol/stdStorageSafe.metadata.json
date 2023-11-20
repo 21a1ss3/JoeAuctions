@@ -1,0 +1,110 @@
+{
+  "compiler": {
+    "version": "0.8.23+commit.f704f362"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "who",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "bytes4",
+            "name": "fsig",
+            "type": "bytes4"
+          },
+          {
+            "indexed": false,
+            "internalType": "bytes32",
+            "name": "keysHash",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "slot",
+            "type": "uint256"
+          }
+        ],
+        "name": "SlotFound",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "who",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "slot",
+            "type": "uint256"
+          }
+        ],
+        "name": "WARNING_UninitedSlot",
+        "type": "event"
+      }
+    ],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {},
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "lib/forge-std/src/StdStorage.sol": "stdStorageSafe"
+    },
+    "evmVersion": "shanghai",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":ds-test/=lib/forge-std/lib/ds-test/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+      ":forge-std/=lib/forge-std/src/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/"
+    ]
+  },
+  "sources": {
+    "lib/forge-std/src/StdStorage.sol": {
+      "keccak256": "0xee79340b675b42ba1192a7698aceaf775518099bd9d89c88eb5a890e8c3bef04",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://3f2f034f1f0e6c2b7cef172d457872e060a1309a4b69630d9c30caaa12f83c1c",
+        "dweb:/ipfs/QmPAaZeAKCn4JLafoxVL4TBYzcrADAVC8dmjT1WPpZ4f4D"
+      ]
+    },
+    "lib/forge-std/src/Vm.sol": {
+      "keccak256": "0x1be1b9201d9dbcc9bf36a6924706fd2b495bd3060eefaaf25b84ab9d434910e1",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://909e5954a147cdd2103b18ff537ca6d577297ea98169f976c47a2387541b595c",
+        "dweb:/ipfs/QmcXSVvt7EN7fjMcgfBGBXnpzgWysxqwu2iLuuPAymtbFE"
+      ]
+    }
+  },
+  "version": 1
+}

@@ -1,0 +1,205 @@
+{
+  "compiler": {
+    "version": "0.8.23+commit.f704f362"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "inputs": [],
+        "name": "excludeArtifacts",
+        "outputs": [
+          {
+            "internalType": "string[]",
+            "name": "excludedArtifacts_",
+            "type": "string[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "excludeContracts",
+        "outputs": [
+          {
+            "internalType": "address[]",
+            "name": "excludedContracts_",
+            "type": "address[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "excludeSenders",
+        "outputs": [
+          {
+            "internalType": "address[]",
+            "name": "excludedSenders_",
+            "type": "address[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "targetArtifactSelectors",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              },
+              {
+                "internalType": "bytes4[]",
+                "name": "selectors",
+                "type": "bytes4[]"
+              }
+            ],
+            "internalType": "struct StdInvariant.FuzzSelector[]",
+            "name": "targetedArtifactSelectors_",
+            "type": "tuple[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "targetArtifacts",
+        "outputs": [
+          {
+            "internalType": "string[]",
+            "name": "targetedArtifacts_",
+            "type": "string[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "targetContracts",
+        "outputs": [
+          {
+            "internalType": "address[]",
+            "name": "targetedContracts_",
+            "type": "address[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "targetInterfaces",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              },
+              {
+                "internalType": "string[]",
+                "name": "artifacts",
+                "type": "string[]"
+              }
+            ],
+            "internalType": "struct StdInvariant.FuzzInterface[]",
+            "name": "targetedInterfaces_",
+            "type": "tuple[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "targetSelectors",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              },
+              {
+                "internalType": "bytes4[]",
+                "name": "selectors",
+                "type": "bytes4[]"
+              }
+            ],
+            "internalType": "struct StdInvariant.FuzzSelector[]",
+            "name": "targetedSelectors_",
+            "type": "tuple[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "targetSenders",
+        "outputs": [
+          {
+            "internalType": "address[]",
+            "name": "targetedSenders_",
+            "type": "address[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {},
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "lib/forge-std/src/StdInvariant.sol": "StdInvariant"
+    },
+    "evmVersion": "shanghai",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":ds-test/=lib/forge-std/lib/ds-test/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+      ":forge-std/=lib/forge-std/src/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/"
+    ]
+  },
+  "sources": {
+    "lib/forge-std/src/StdInvariant.sol": {
+      "keccak256": "0xaffbb74d0276b7eea8d5a6de6f003d3dc151c5520bf2094e48b5098b60935f52",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://e84280959bc8677be79bb09c401341eee8f4f5932de549f423474b65dbed7c8a",
+        "dweb:/ipfs/QmU4LJnAcrDX69fCgmwEpFP1CsEjNR6LS8EFVHy4axkH6e"
+      ]
+    }
+  },
+  "version": 1
+}
