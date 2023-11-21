@@ -284,11 +284,11 @@
       ]
     },
     "script/AuctionDeployerGoerli.s.sol": {
-      "keccak256": "0x4974d4036f702e79f06775b1b31cfae6d60a88106e9f3aefbd3494a957b067a8",
+      "keccak256": "0xa58e4b3aad8afff7596f5ceeb6f693f48446ff2b2e0480059b23d9aaebf70ffc",
       "license": "UNLICENSED",
       "urls": [
-        "bzz-raw://fe63bc781ad5ce78aba9a1213229a044bc335feeb619a381414a896606574467",
-        "dweb:/ipfs/QmdmVWbnf3bV4TzWVQF8PHFHdG3wjHHVvq9jH5JJLbuNKH"
+        "bzz-raw://af227808dfa595baa63f6f2fa8e615e89134d6a3d90a4eed651c9aa80ecbcfe4",
+        "dweb:/ipfs/QmWkeDNxDtmpgeNracNggwY9tmWzTRK4TRqrdcDbuKvuLj"
       ]
     },
     "src/AuctionGoerli.sol": {
@@ -324,11 +324,11 @@
       ]
     },
     "src/JoeMerchNft.sol": {
-      "keccak256": "0xfb82104e76171e5595d0a9355fd620c228bf084eefbb7936636f25ee3808b150",
+      "keccak256": "0x41cd806fdd40a4644382d58e4db13af3823df005192ab95bda98263751d74c37",
       "license": "UNLICENSED",
       "urls": [
-        "bzz-raw://d3965454b7a729272fdbf00afc3fd7274263a419553d50635cad8faf92094659",
-        "dweb:/ipfs/QmcHhAgoVCZzzSsFsD4GeexnrZD33bPicu57PKMt1LfGJq"
+        "bzz-raw://b90b9ed5c76c127a81f359c9f6fb717fb7f19dbacc19333738bbaf3517ddca2f",
+        "dweb:/ipfs/QmNr68768awR9oKZtuVXiGqWBBCE1G8McEq68j22hdQnvZ"
       ]
     }
   },

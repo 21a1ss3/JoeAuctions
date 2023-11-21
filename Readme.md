@@ -17,6 +17,7 @@ Initial:
 2. Deploy JoeMerchNft
 3. SetMerchNft
 4. SetAuction
+5. SetBaseUri
 
 Regular cycles:
 1. LaunchAuction
