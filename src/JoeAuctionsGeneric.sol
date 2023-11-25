@@ -87,7 +87,9 @@ abstract contract JoeAuctionsGeneric is Ownable2Step, IAuction {
         emit AuctionLaunched(block.timestamp, endTime, minBid);
     }
 
-    function ClaimReward() public { //onlyExecutor?
+    function ClaimReward() public {
+        require(BestBidWallet == _msgSender(), "Only a winner can claim the reward");
+
         _issueUserReward();
     }
 

@@ -708,11 +708,11 @@
       ]
     },
     "src/JoeAuctionsGeneric.sol": {
-      "keccak256": "0xbb9c1efa0c31e99018b060b951529705efbd08600112e7f85d40dd3a473de8f1",
+      "keccak256": "0x4161bdfbe0b09a2283cd59e49d1521987b9f4a4cc8c489d9371f569abce84431",
       "license": "UNLICENSED",
       "urls": [
-        "bzz-raw://261d7b0dd434f9169c66f2a2d98698ded224171abf996016fac726afa62fb762",
-        "dweb:/ipfs/QmfG1Kat6tEJh4YDo3YvgLH3RcKAsCEk2q2r19rpmKTuK6"
+        "bzz-raw://1a1ebb0c6bbd2fdc0a05dbfd247dbfff8bf8899e4335979e2e130037393dec05",
+        "dweb:/ipfs/QmerzCJXfVhQu6kk6hbDeRM9aJCpqTT9ibuwtGZP8Nq8zN"
       ]
     }
   },

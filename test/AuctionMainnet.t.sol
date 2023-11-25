@@ -75,6 +75,9 @@ contract AuctionMainnetTest is Test {
 
         Auction:
         A40. Mint (NFT)
+
+        Winner:
+        A60. Check non-winner & winner access to claim reward
     //*/
 
     //Extended tests
@@ -620,7 +623,9 @@ contract AuctionMainnetTest is Test {
         vm.expectRevert();
         MerchNft.ownerOf(lastTokenIdBefore + 1);
 
+        vm.startPrank(winnerAddress);
         AuctionContract.ClaimReward();
+        vm.stopPrank();
 
         assertEq(MerchNft.ownerOf(lastTokenIdBefore + 1), winnerAddress);
         assertEq(MerchNft.LastTokenId(), lastTokenIdBefore + 1);
@@ -631,7 +636,9 @@ contract AuctionMainnetTest is Test {
         vm.expectRevert();
         MerchNft.ownerOf(lastTokenIdBefore + 2);
 
+        vm.startPrank(winnerAddress);
         AuctionContract.ClaimReward();
+        vm.stopPrank();
         
         assertEq(MerchNft.LastTokenId(), lastTokenIdBefore + 1);
         vm.expectRevert();
@@ -852,7 +859,10 @@ contract AuctionMainnetTest is Test {
         
         vm.warp(block.timestamp + 1 days + 2 seconds);
         vm.roll(block.number + (1 days + 2 seconds) / 2);
+
+        vm.startPrank(Users[0]);
         AuctionContract.ClaimReward();
+        vm.stopPrank();
 
 
         address wrongUser = address(0xdead00dead);
@@ -891,6 +901,26 @@ contract AuctionMainnetTest is Test {
         vm.stopPrank();
 
         assertEq(MerchNft.LastTokenId(), initialValue + 1);
+    }
+
+    function testCaseA60() public {
+        address wrongUser = address(0xdead00dead);
+        testCase03();
+        (uint256 user0Bid, ) = AuctionContract.Bids(Users[0]);
+        
+        vm.warp(block.timestamp + 1 days + 2 seconds);
+        vm.roll(block.number + (1 days + 2 seconds) / 2);
+        
+    
+        vm.startPrank(wrongUser);
+        vm.expectRevert(bytes32("Only a winner can claim the reward"));
+        AuctionContract.ClaimReward();
+        vm.stopPrank();
+
+
+        vm.startPrank(Users[0]);
+        AuctionContract.ClaimReward();
+        vm.stopPrank();
     }
 
     function testCaseE1() public {
