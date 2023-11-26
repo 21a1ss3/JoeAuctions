@@ -852,6 +852,13 @@
       },
       {
         "inputs": [],
+        "name": "testCaseA60",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
         "name": "testCaseE1",
         "outputs": [],
         "stateMutability": "nonpayable",
@@ -1235,11 +1242,11 @@
       ]
     },
     "src/JoeAuctionsGeneric.sol": {
-      "keccak256": "0x4161bdfbe0b09a2283cd59e49d1521987b9f4a4cc8c489d9371f569abce84431",
+      "keccak256": "0x1aa867810976e5dd9582d0999a72e98ccfff0916a105f7c5b4967e10f431f4a8",
       "license": "UNLICENSED",
       "urls": [
-        "bzz-raw://1a1ebb0c6bbd2fdc0a05dbfd247dbfff8bf8899e4335979e2e130037393dec05",
-        "dweb:/ipfs/QmerzCJXfVhQu6kk6hbDeRM9aJCpqTT9ibuwtGZP8Nq8zN"
+        "bzz-raw://e73e557daeffd72676c3929b02c4935b1e7929b412e5754a69083f0005af35b7",
+        "dweb:/ipfs/QmXoDKwC3pU6TtDZTVkoh4hMWr5JtxoZN6uddT5ku2aYMo"
       ]
     },
     "src/JoeMerchNft.sol": {
@@ -1251,11 +1258,11 @@
       ]
     },
     "test/AuctionGoerli.t.sol": {
-      "keccak256": "0xe03301cd2bd75198be298338f71fe00c50029c39c293ddb496c50dc1df08b6f4",
+      "keccak256": "0xff593c253121b7e39cf2936d8c579d0653a0a1569506c2832afb536a8d2cf6d7",
       "license": "UNLICENSED",
       "urls": [
-        "bzz-raw://7258fb59cbb1bff78e6ea0a7020b911f832f763830505e9360c1c5e23aa634a9",
-        "dweb:/ipfs/QmSQSzpYf8Zit3CpHYxAwPYRiVnmeQmdivXv8ZhJXPYPKJ"
+        "bzz-raw://c1475a4eea1c98f9fd74c40cb92968073f8326c3ab74ee6086491311f9031fff",
+        "dweb:/ipfs/QmZRFeLYr36f8DJ2C7CJGYpjBYsoi9QmjmLWCUQo4Qekt8"
       ]
     }
   },

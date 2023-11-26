@@ -913,7 +913,7 @@ contract AuctionGoerliTest is Test {
         
     
         vm.startPrank(wrongUser);
-        vm.expectRevert(bytes32("Only a winner can claim the reward"));
+        vm.expectRevert(bytes("Only a winner can claim the reward"));
         AuctionContract.ClaimReward();
         vm.stopPrank();
 
