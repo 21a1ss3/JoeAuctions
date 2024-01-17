@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
+import "./Branding.sol";
 import {IERC20} from "openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 import {Ownable2Step} from "openzeppelin-contracts/contracts/access/Ownable2Step.sol";
 import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
@@ -8,7 +9,7 @@ import {ERC721} from "openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 import {IAuction} from "./IAuction.sol";
 import {IJoeMerchNft} from "./IJoeMerchNft.sol";
 
-contract JoeMerchNft is ERC721, Ownable2Step, IJoeMerchNft {
+contract JoeMerchNft is JoeBranding, ERC721, Ownable2Step, IJoeMerchNft {
     constructor(address owner)
         ERC721("Joe Merch", "$JOE") Ownable(owner)
     {
